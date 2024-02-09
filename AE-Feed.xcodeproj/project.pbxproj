@@ -11,6 +11,8 @@
 		675584002B767D130017B658 /* AE_Feed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 675583F52B767D120017B658 /* AE_Feed.framework */; };
 		675584052B767D130017B658 /* AE_FeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675584042B767D130017B658 /* AE_FeedTests.swift */; };
 		675584062B767D130017B658 /* AE_Feed.h in Headers */ = {isa = PBXBuildFile; fileRef = 675583F82B767D120017B658 /* AE_Feed.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		675584102B767D4F0017B658 /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6755840F2B767D4F0017B658 /* FeedItem.swift */; };
+		675584122B767DB90017B658 /* FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675584112B767DB90017B658 /* FeedLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +31,8 @@
 		675583F92B767D120017B658 /* AE_Feed.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = AE_Feed.docc; sourceTree = "<group>"; };
 		675583FF2B767D130017B658 /* AE-FeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AE-FeedTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		675584042B767D130017B658 /* AE_FeedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AE_FeedTests.swift; sourceTree = "<group>"; };
+		6755840F2B767D4F0017B658 /* FeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
+		675584112B767DB90017B658 /* FeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,7 @@
 		675583EB2B767D120017B658 = {
 			isa = PBXGroup;
 			children = (
+				675584132B767F820017B658 /* FeedFeature */,
 				675583F72B767D120017B658 /* AE-Feed */,
 				675584032B767D130017B658 /* AE-FeedTests */,
 				675583F62B767D120017B658 /* Products */,
@@ -83,6 +88,15 @@
 				675584042B767D130017B658 /* AE_FeedTests.swift */,
 			);
 			path = "AE-FeedTests";
+			sourceTree = "<group>";
+		};
+		675584132B767F820017B658 /* FeedFeature */ = {
+			isa = PBXGroup;
+			children = (
+				675584112B767DB90017B658 /* FeedLoader.swift */,
+				6755840F2B767D4F0017B658 /* FeedItem.swift */,
+			);
+			path = FeedFeature;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,6 +208,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				675584122B767DB90017B658 /* FeedLoader.swift in Sources */,
+				675584102B767D4F0017B658 /* FeedItem.swift in Sources */,
 				675583FA2B767D120017B658 /* AE_Feed.docc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -406,6 +422,7 @@
 		6755840D2B767D130017B658 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 79X737MFXF;
@@ -421,6 +438,7 @@
 		6755840E2B767D130017B658 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 79X737MFXF;
