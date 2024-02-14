@@ -28,7 +28,8 @@ final class RemoteFeedLoaderTests: XCTestCase {
             capturedErrors.append($0)
         }
         let clientError = NSError(domain: "Test", code: 0)
-        client.completions[0](clientError)
+        client.complete(with :clientError)
+       
         
         XCTAssertEqual(capturedErrors, [.connectivity])
     }
@@ -48,11 +49,14 @@ final class RemoteFeedLoaderTests: XCTestCase {
             completions.append(completion)
             requestedURLs.append(url)
         }
+        func complete(with error:Error, at index:Int = 0){
+            completions[index](error)
+        }
     }
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
-
+    
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
