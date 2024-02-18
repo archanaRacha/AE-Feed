@@ -57,6 +57,12 @@ final class RemoteFeedLoaderTests: XCTestCase {
         }
     }
 
+//    func test_load_deliverNoItemsOn200HTTPResponseWithEmptyList(){
+//        let (sut, client)  = makeSUT()
+//        var captureResult:[RemoteFeedLoader.Result]()
+//        expect(sut: sut, toCompleteWithError: , when: <#T##() -> Void#>)
+//        
+//    }
     // MARK: helpers
     private func makeSUT(url: URL = URL.init(string: "https://a-url.com")!) -> (sut:RemoteFeedLoader,client:HTTPClientSpy){
         let client = HTTPClientSpy()
@@ -65,10 +71,10 @@ final class RemoteFeedLoaderTests: XCTestCase {
     }
     
     private func expect(sut: RemoteFeedLoader,toCompleteWithError error:RemoteFeedLoader.Error, when action:()->Void, file:StaticString = #file,line:UInt = #line){
-        var capturedErrors =  [RemoteFeedLoader.Error]()
-        sut.load {capturedErrors.append($0)}
+        var capturedResults =  [RemoteFeedLoader.Result]()
+        sut.load {capturedResults.append($0)}
         action()
-        XCTAssertEqual(capturedErrors, [error],file:file,line: line)
+        XCTAssertEqual(capturedResults, [.failure(error)],file:file,line: line)
         
     }
     private class HTTPClientSpy:HTTPClient{
