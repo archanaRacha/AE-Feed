@@ -28,11 +28,26 @@ public final class RemoteFeedLoader{
         self.client = client
         self.url = url
     }
-    public func load(completion:@escaping(RemoteFeedLoader.Result) -> Void){
+    public func load(completion:@escaping(Result) -> Void){
         client.get(from: url) { result in
             switch result{
-            case .success:
-                completion(.failure(.invalidData))
+            case  let  .success(data,_):
+                
+                if let _ = try? JSONSerialization.jsonObject(with: data){
+                    //                    if json["items"].count > 0{
+                    //                        for item in json["items"]{
+                    //
+                    //                        }
+                    //                        completion(.success([]))
+                    //                    }else{
+                    completion(.success([]))
+                    //                    }
+                    
+                }else{
+                    
+                    completion(.failure(.invalidData))
+                }
+            
             case .failure:
                 completion(.failure(.connectivity))
             }
