@@ -79,10 +79,17 @@ final class RemoteFeedLoaderTests: XCTestCase {
     }
     
     // MARK: helpers
-    private func makeSUT(url: URL = URL.init(string: "https://a-url.com")!) -> (sut:RemoteFeedLoader,client:HTTPClientSpy){
+    private func makeSUT(url: URL = URL.init(string: "https://a-url.com")!,file:StaticString,line:UInt = #line) -> (sut:RemoteFeedLoader,client:HTTPClientSpy){
         let client = HTTPClientSpy()
         let sut = RemoteFeedLoader(client: client, url: url)
+       trackMemoryLeaks(sut)
+        trackMemoryLeaks(client)
         return(sut, client)
+    }
+    private func trackMemoryLeaks(_ instance:AnyObject,file:StaticString = #file,line:UInt = #line){
+        addTeardownBlock {
+            XCTAssertNil(instance,"instance should have been deallocated. Potential memory leak.",file: file, line:  line)
+        }
     }
     private func makeItem(id:UUID,description:String? = nil,location:String? = nil,imageURL:URL) -> (model:FeedItem,json:[String:Any]){
         let item = FeedItem(id: id, description: description, location: location, imageURL: imageURL)
