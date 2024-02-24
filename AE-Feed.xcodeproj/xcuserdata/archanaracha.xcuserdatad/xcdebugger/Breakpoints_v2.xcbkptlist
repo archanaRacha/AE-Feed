@@ -7,47 +7,47 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E3EA4B55-DB38-41FC-AB8E-92A5CE6D65D2"
-            shouldBeEnabled = "No"
+            uuid = "DD773914-CC38-485D-9106-405A1F03A2F4"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FeedAPI/RemoteFeedLoader.swift"
+            filePath = "AE-FeedTests/RemoteFeedLoaderTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "load(completion:)"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
+            landmarkName = "get(from:completion:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "E3EA4B55-DB38-41FC-AB8E-92A5CE6D65D2 - de37163ac9f6a40b"
+                  uuid = "DD773914-CC38-485D-9106-405A1F03A2F4 - 8e395a676f2c8a6b"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (AE_Feed.HTTPClientResult) -&gt; () in AE_Feed.RemoteFeedLoader.load(completion: (AE_Feed.RemoteFeedLoader.Result) -&gt; ()) -&gt; ()"
-                  moduleName = "AE_Feed"
+                  symbolName = "AE_FeedTests.RemoteFeedLoaderTests.HTTPClientSpy.get(from: Foundation.URL, completion: (AE_Feed.HTTPClientResult) -&gt; ()) -&gt; ()"
+                  moduleName = "AE-FeedTests"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/archanaracha/Desktop/EssenstialDeveloper/Untitled/FeedAPI/RemoteFeedLoader.swift"
+                  urlString = "file:///Users/archanaracha/Desktop/EssenstialDeveloper/Untitled/AE-FeedTests/RemoteFeedLoaderTests.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "36"
-                  endingLineNumber = "36"
-                  offsetFromSymbolStart = "232">
+                  startingLineNumber = "114"
+                  endingLineNumber = "114"
+                  offsetFromSymbolStart = "284">
                </Location>
                <Location
-                  uuid = "E3EA4B55-DB38-41FC-AB8E-92A5CE6D65D2 - de37163ac9f6a40b"
+                  uuid = "DD773914-CC38-485D-9106-405A1F03A2F4 - 8e395a676f2c89ef"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (AE_Feed.HTTPClientResult) -&gt; () in AE_Feed.RemoteFeedLoader.load(completion: (AE_Feed.RemoteFeedLoader.Result) -&gt; ()) -&gt; ()"
-                  moduleName = "AE_Feed"
+                  symbolName = "AE_FeedTests.RemoteFeedLoaderTests.HTTPClientSpy.get(from: Foundation.URL, completion: (AE_Feed.HTTPClientResult) -&gt; ()) -&gt; ()"
+                  moduleName = "AE-FeedTests"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/archanaracha/Desktop/EssenstialDeveloper/Untitled/FeedAPI/RemoteFeedLoader.swift"
+                  urlString = "file:///Users/archanaracha/Desktop/EssenstialDeveloper/Untitled/AE-FeedTests/RemoteFeedLoaderTests.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "36"
-                  endingLineNumber = "36"
-                  offsetFromSymbolStart = "424">
+                  startingLineNumber = "118"
+                  endingLineNumber = "118"
+                  offsetFromSymbolStart = "328">
                </Location>
             </Locations>
          </BreakpointContent>
