@@ -15,9 +15,11 @@ class URLSessionHTTPClient {
     }
     struct UnexpectedValueRepresentation:Error{}
     func get(from url:URL, completion : @escaping(HTTPClientResult) -> Void) {
-        session.dataTask(with: url) { _, _, error in
+        session.dataTask(with: url) { data, response, error in
             if let error = error{
                 completion(.failure(error ))
+            }else if let data = data, data.count > 0 , let response = response as? HTTPURLResponse {
+                completion(.success(data, response))
             }else{
                 completion(.failure(UnexpectedValueRepresentation()))
             }
@@ -59,6 +61,28 @@ class URLSessionHTTPClientTests: XCTestCase {
         XCTAssertNotNil(resultErrorFor(data: anyData(), response: httpURLResponse(), error: anyNSError()))
         XCTAssertNotNil(resultErrorFor(data: anyData(), response: nonHTTPURLResponse(), error: nil))
        
+    }
+    func test_getFroURL_succeedOnHTTPURLResponseWithData(){
+        let anyHttpResponse = httpURLResponse()
+        let anyData = anyData()
+        URLProtocolStub.stub(data:anyData,response:anyHttpResponse, error: nil)
+        let exp = expectation(description: "wait for complete")
+
+        makeSUT().get(from:anyURL()) { result  in
+            switch result {
+            case let .success(receivedData, receivedResponse):
+                XCTAssertEqual(receivedResponse.url,anyHttpResponse.url )
+                XCTAssertEqual(receivedData,anyData)
+                break
+            case let .failure(_ as NSError): break
+    
+            default:
+               break
+            }
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: 1.0)
+    
     }
     //MARK: Helpers
     private func makeSUT(file:StaticString = #file,line :UInt = #line) ->URLSessionHTTPClient{
