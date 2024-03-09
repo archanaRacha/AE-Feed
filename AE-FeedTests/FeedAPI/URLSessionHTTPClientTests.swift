@@ -63,16 +63,17 @@ class URLSessionHTTPClientTests: XCTestCase {
        
     }
     func test_getFroURL_succeedOnHTTPURLResponseWithData(){
-        let anyHttpResponse = httpURLResponse()
-        let anyData = anyData()
-        URLProtocolStub.stub(data:anyData,response:anyHttpResponse, error: nil)
+        let response = httpURLResponse()
+        let data = anyData()
+        URLProtocolStub.stub(data:data,response:response, error: nil)
         let exp = expectation(description: "wait for complete")
 
         makeSUT().get(from:anyURL()) { result  in
             switch result {
             case let .success(receivedData, receivedResponse):
-                XCTAssertEqual(receivedResponse.url,anyHttpResponse.url )
-                XCTAssertEqual(receivedData,anyData)
+                XCTAssertEqual(receivedData,data )
+                XCTAssertEqual(receivedResponse.url,response.url)
+                XCTAssertEqual(receivedResponse.statusCode,response.statusCode)
                 break
             case let .failure(_ as NSError): break
     
