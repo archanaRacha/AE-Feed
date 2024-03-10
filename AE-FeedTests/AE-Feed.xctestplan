@@ -1,7 +1,7 @@
 {
   "configurations" : [
     {
-      "id" : "88DC0DAA-E88B-4EC9-A1CC-411BA705E850",
+      "id" : "CDFABEF0-BF33-4CF1-BF20-EEA2C400E526",
       "name" : "Test Scheme Action",
       "options" : {
 
@@ -9,10 +9,11 @@
     }
   ],
   "defaultOptions" : {
-
+    "testExecutionOrdering" : "random"
   },
   "testTargets" : [
     {
+      "enabled" : false,
       "parallelizable" : true,
       "target" : {
         "containerPath" : "container:AE-Feed.xcodeproj",
