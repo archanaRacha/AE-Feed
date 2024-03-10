@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "CDFABEF0-BF33-4CF1-BF20-EEA2C400E526",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:AE-Feed.xcodeproj",
+        "identifier" : "675583FE2B767D130017B658",
+        "name" : "AE-FeedTests"
+      }
+    }
+  ],
+  "version" : 1
+}
