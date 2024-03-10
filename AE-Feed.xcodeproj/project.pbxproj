@@ -56,6 +56,7 @@
 		676BCDF92B9DBE88007136BB /* AE-Feed.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = "AE-Feed.xctestplan"; path = "../AE-Feed.xctestplan"; sourceTree = "<group>"; };
 		676BCDFE2B9DC18D007136BB /* AE_FeedAPIEndToEndTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AE_FeedAPIEndToEndTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		676BCE002B9DC18D007136BB /* AE_FeedAPIEndToEndTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AE_FeedAPIEndToEndTests.swift; sourceTree = "<group>"; };
+		676BCE0A2B9DD35A007136BB /* AE_FeedAPIEndToEnd.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = file; path = AE_FeedAPIEndToEnd.xctestplan; sourceTree = SOURCE_ROOT; };
 		678A183B2B83BFE7009FE00D /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		678A183D2B83C039009FE00D /* FeedItemMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItemMapper.swift; sourceTree = "<group>"; };
 		678B73192B79DA590015E40D /* RemoteFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedLoader.swift; sourceTree = "<group>"; };
@@ -161,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				676BCE002B9DC18D007136BB /* AE_FeedAPIEndToEndTests.swift */,
+				676BCE0A2B9DD35A007136BB /* AE_FeedAPIEndToEnd.xctestplan */,
 			);
 			path = AE_FeedAPIEndToEndTests;
 			sourceTree = "<group>";

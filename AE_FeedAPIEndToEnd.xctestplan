@@ -9,10 +9,25 @@
     }
   ],
   "defaultOptions" : {
-
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:AE-Feed.xcodeproj",
+          "identifier" : "675583F42B767D120017B658",
+          "name" : "AE-Feed"
+        }
+      ]
+    },
+    "testExecutionOrdering" : "random"
   },
   "testTargets" : [
-
+    {
+      "target" : {
+        "containerPath" : "container:AE-Feed.xcodeproj",
+        "identifier" : "676BCDFD2B9DC18D007136BB",
+        "name" : "AE_FeedAPIEndToEndTests"
+      }
+    }
   ],
   "version" : 1
 }
