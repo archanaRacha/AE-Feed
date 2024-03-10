@@ -10,18 +10,9 @@ import AE_Feed
 
 final class AE_FeedAPIEndToEndTests: XCTestCase {
 
-    func test_endToEndTestServerFetFeedResult_matchesFixedTestAccountData() {
-        let client = URLSessionHTTPClient()
-        let testServerURL = URL(string: "https://essentialdeveloper.com/feed-case-study/test-api/feed")!
-        let loader = RemoteFeedLoader(client: client, url: testServerURL)
-        let exp = expectation(description: "wait for load completion")
-        var receivedResult : LoadFeedResult?
-        loader.load { result in
-            receivedResult = result
-            exp.fulfill()
-        }
-        wait(for: [exp], timeout: 10.0)
-        switch receivedResult {
+    func test_endToEndTestServerGetFeedResult_matchesFixedTestAccountData() {
+        
+        switch getFeedResult() {
         case .success(let array):
             XCTAssertEqual(array.count, 8, "Expected 8 items in the test account feed")
             XCTAssertEqual(array[0], expectedFeedItems(at :0))
@@ -40,6 +31,19 @@ final class AE_FeedAPIEndToEndTests: XCTestCase {
         }
     }
     //MARK: Helper functions
+    private func getFeedResult() -> LoadFeedResult?{
+        let client = URLSessionHTTPClient()
+        let testServerURL = URL(string: "https://essentialdeveloper.com/feed-case-study/test-api/feed")!
+        let loader = RemoteFeedLoader(client: client, url: testServerURL)
+        let exp = expectation(description: "wait for load completion")
+        var receivedResult : LoadFeedResult?
+        loader.load { result in
+            receivedResult = result
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: 10.0)
+        return receivedResult
+    }
     private func expectedFeedItems(at index:Int) -> FeedItem {
         return FeedItem(id: id(at : index) , description: description(at : index), location: location(at : index), imageURL: imageURL(at : index))
     }
