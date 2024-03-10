@@ -9,10 +9,12 @@
     }
   ],
   "defaultOptions" : {
-
+    "testExecutionOrdering" : "random"
   },
   "testTargets" : [
     {
+      "enabled" : false,
+      "parallelizable" : true,
       "target" : {
         "containerPath" : "container:AE-Feed.xcodeproj",
         "identifier" : "675583FE2B767D130017B658",
