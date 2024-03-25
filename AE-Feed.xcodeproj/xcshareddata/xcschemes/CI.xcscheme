@@ -39,11 +39,11 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:AE-Feed.xctestplan">
+            reference = "container:AE-Feed.xctestplan"
+            default = "YES">
          </TestPlanReference>
          <TestPlanReference
-            reference = "container:AE_FeedAPIEndToEnd.xctestplan"
-            default = "YES">
+            reference = "container:AE_FeedAPIEndToEnd.xctestplan">
          </TestPlanReference>
       </TestPlans>
    </TestAction>
