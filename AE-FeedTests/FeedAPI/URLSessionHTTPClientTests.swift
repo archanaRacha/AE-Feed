@@ -85,7 +85,7 @@ class URLSessionHTTPClientTests: XCTestCase {
         case .failure(let error):
             return error
         default:
-            XCTFail("Expected failure with \(error), got \(result) instead.",file:file,line:line)
+            XCTFail("Expected failure with \(String(describing: error)), got \(result) instead.",file:file,line:line)
             return nil
         }
        
@@ -96,7 +96,7 @@ class URLSessionHTTPClientTests: XCTestCase {
         case let .success(data, response):
             return (data, response)
         default:
-            XCTFail("Expected failure with \(error), got \(result) instead.",file:file,line:line)
+            XCTFail("Expected failure with \(String(describing: error)), got \(result) instead.",file:file,line:line)
             return nil
         }
     }
@@ -104,7 +104,7 @@ class URLSessionHTTPClientTests: XCTestCase {
         return URL(string:"http://any-url.com")!
     }
     private func anyData() -> Data{
-        return Data(bytes:"any data".utf8)
+        return Data.init("any data".utf8)
     }
     private func anyNSError() -> NSError{
         return NSError(domain: "any error", code: 0)
@@ -140,13 +140,17 @@ class URLSessionHTTPClientTests: XCTestCase {
             requestObserver = nil
         }
         override class func canInit(with request: URLRequest) -> Bool {
-            requestObserver?(request)
             return true
         }
         override class func canonicalRequest(for request: URLRequest) -> URLRequest {
             return request
         }
-        override func startLoading() {
+        override func startLoading()  {
+            if let requestObserver = URLProtocolStub.requestObserver{
+                client?.urlProtocolDidFinishLoading(self)
+                return  requestObserver(request)
+            }
+           
             if let data = URLProtocolStub.stub?.data {
                 client?.urlProtocol(self, didLoad: data)
             }
