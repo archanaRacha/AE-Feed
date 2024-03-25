@@ -23,4 +23,4 @@ jobs:
       
     - name: Build and tests
 
-      run: xcodebuild clean build test -project AE-Feed/AE-Feed.xcodeproj -scheme "CI" CODE_SIGN_IDENTITY=""  CODE_SIGNING_REQUIRED=NO
+      run: xcodebuild clean build test -project AE-Feed.xcodeproj -scheme "CI" CODE_SIGN_IDENTITY=""  CODE_SIGNING_REQUIRED=NO
