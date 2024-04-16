@@ -7,7 +7,7 @@
 
 import XCTest
 import AE_Feed
-final class RemoteFeedLoaderTests: XCTestCase {
+final class LoadFeedFromRemoteUseCaseTests: XCTestCase {
 
     func test_init_doesNotRequestDataFromURL(){
         let (_,client) = makeSUT(url:URL.init(string: "https://a-url.com")!)
