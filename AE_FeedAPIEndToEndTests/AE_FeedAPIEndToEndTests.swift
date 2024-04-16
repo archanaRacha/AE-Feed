@@ -9,7 +9,7 @@ import XCTest
 import AE_Feed
 
 final class AE_FeedAPIEndToEndTests: XCTestCase {
-
+    
     func test_endToEndTestServerGetFeedResult_matchesFixedTestAccountData() {
         
         switch getFeedResult() {
@@ -32,7 +32,7 @@ final class AE_FeedAPIEndToEndTests: XCTestCase {
     }
     //MARK: Helper functions
     private func getFeedResult(file:StaticString = #file,line :UInt = #line) -> LoadFeedResult?{
-        let client = URLSessionHTTPClient()
+        let client = URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
         let testServerURL = URL(string: "https://essentialdeveloper.com/feed-case-study/test-api/feed")!
         let loader = RemoteFeedLoader(client: client, url: testServerURL)
         trackMemoryLeaks(client,file: file,line: line)
