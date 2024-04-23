@@ -17,9 +17,7 @@ class LocalFeedLoader{
     func save(_ items : [FeedItem],completion:@escaping(Error?) -> Void){
         store.deleteCacheFeed {[unowned self] error in
             if error == nil {
-                self.store.insert(items,timestamp: self.currentDate()) { error in
-                    completion(error)
-                }
+                self.store.insert(items,timestamp: self.currentDate(),completion: completion)
             }else{
                 completion(error)
             }
@@ -55,6 +53,9 @@ class FeedStore {
     }
     func completeInsertion(with error:Error, at index:Int = 0){
         insertionCompletions[index](error)
+    }
+    func completeInsertionSuccessfully(at index:Int = 0){
+        insertionCompletions[index](nil)
     }
 }
 final class CacheFeedUserCaseTests: XCTestCase {
@@ -117,6 +118,21 @@ final class CacheFeedUserCaseTests: XCTestCase {
         store.completeInsertion(with:insertionError )
         wait(for: [exp],timeout: 1.0)
         XCTAssertEqual(receivedError! as NSError,insertionError)
+    }
+    func test_save_successdsOnSuccessfulCacheInsertion(){
+        let items = [uniqueItem(),uniqueItem()]
+        let (sut,store) = makeSUT()
+        let insertionError = anyNSError()
+        let exp = expectation(description: "wait for save completion")
+        var receivedError:Error?
+        sut.save(items){ error in
+            receivedError = error
+            exp.fulfill()
+        }
+        store.completeDeletionSuccessfully()
+        store.completeInsertionSuccessfully()
+        wait(for: [exp],timeout: 1.0)
+        XCTAssertNil(receivedError)
     }
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
