@@ -6,14 +6,21 @@
 //
 
 import XCTest
-
+import AE_Feed
 class LocalFeedLoader{
+    private let store: FeedStore
     init(store:FeedStore){
-        
+        self.store = store
+    }
+    func save(_ items : [FeedItem]){
+        store.deleteCacheFeed()
     }
 }
 class FeedStore {
     var deleteCachedFeedCallCount = 0
+    func deleteCacheFeed(){
+        deleteCachedFeedCallCount += 1
+    }
 }
 final class CacheFeedUserCaseTests: XCTestCase {
 
@@ -23,6 +30,13 @@ final class CacheFeedUserCaseTests: XCTestCase {
         XCTAssertEqual(store.deleteCachedFeedCallCount, 0)
     }
     
+    func test_save_requestsCacheDeletion(){
+        let store = FeedStore()
+        let sut = LocalFeedLoader(store:store)
+        let items = [uniqueItem(),uniqueItem()]
+        sut.save(items)
+        XCTAssertEqual(store.deleteCachedFeedCallCount, 1)
+    }
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -46,4 +60,11 @@ final class CacheFeedUserCaseTests: XCTestCase {
         }
     }
 
+    //MARK: Helpers
+    private func uniqueItem() -> FeedItem{
+        return FeedItem(id: UUID(), description: "any", location: "any", imageURL: anyURL())
+    }
+    private func anyURL() -> URL{
+        return URL(string:"http://any-url.com")!
+    }
 }
