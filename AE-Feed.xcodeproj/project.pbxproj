@@ -13,6 +13,8 @@
 		675584062B767D130017B658 /* AE_Feed.h in Headers */ = {isa = PBXBuildFile; fileRef = 675583F82B767D120017B658 /* AE_Feed.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		675584102B767D4F0017B658 /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6755840F2B767D4F0017B658 /* FeedItem.swift */; };
 		675584122B767DB90017B658 /* FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675584112B767DB90017B658 /* FeedLoader.swift */; };
+		675C35302BDA20A800B102DE /* LocalFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675C352F2BDA20A800B102DE /* LocalFeedLoader.swift */; };
+		675C35322BDA21A200B102DE /* FeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675C35312BDA21A200B102DE /* FeedStore.swift */; };
 		675CA4B22B9834E4003E4591 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675CA4B12B9834E4003E4591 /* XCTestCase+MemoryLeakTracking.swift */; };
 		675F014F2B8F91EE00E0A2C8 /* URLSessionHTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675F014E2B8F91EE00E0A2C8 /* URLSessionHTTPClientTests.swift */; };
 		676BCDF32B9C98F8007136BB /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676BCDF22B9C98F8007136BB /* URLSessionHTTPClient.swift */; };
@@ -51,6 +53,8 @@
 		675584042B767D130017B658 /* AE_FeedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AE_FeedTests.swift; sourceTree = "<group>"; };
 		6755840F2B767D4F0017B658 /* FeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
 		675584112B767DB90017B658 /* FeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoader.swift; sourceTree = "<group>"; };
+		675C352F2BDA20A800B102DE /* LocalFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFeedLoader.swift; sourceTree = "<group>"; };
+		675C35312BDA21A200B102DE /* FeedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedStore.swift; sourceTree = "<group>"; };
 		675CA4B12B9834E4003E4591 /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 		675F014E2B8F91EE00E0A2C8 /* URLSessionHTTPClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClientTests.swift; sourceTree = "<group>"; };
 		676BCDF22B9C98F8007136BB /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
@@ -106,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				678826262BB1914500E1266B /* README.md */,
+				675C352E2BDA207400B102DE /* FeedCache */,
 				675584132B767F820017B658 /* FeedFeature */,
 				675583F72B767D120017B658 /* AE-Feed */,
 				678B73182B79DA320015E40D /* FeedAPI */,
@@ -153,6 +158,15 @@
 				6755840F2B767D4F0017B658 /* FeedItem.swift */,
 			);
 			path = FeedFeature;
+			sourceTree = "<group>";
+		};
+		675C352E2BDA207400B102DE /* FeedCache */ = {
+			isa = PBXGroup;
+			children = (
+				675C352F2BDA20A800B102DE /* LocalFeedLoader.swift */,
+				675C35312BDA21A200B102DE /* FeedStore.swift */,
+			);
+			path = FeedCache;
 			sourceTree = "<group>";
 		};
 		675CA4B02B983468003E4591 /* Helper */ = {
@@ -329,12 +343,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				675C35322BDA21A200B102DE /* FeedStore.swift in Sources */,
 				676BCDF32B9C98F8007136BB /* URLSessionHTTPClient.swift in Sources */,
 				678B731A2B79DA590015E40D /* RemoteFeedLoader.swift in Sources */,
 				678A183C2B83BFE7009FE00D /* HTTPClient.swift in Sources */,
 				675584122B767DB90017B658 /* FeedLoader.swift in Sources */,
 				678A183E2B83C039009FE00D /* FeedItemMapper.swift in Sources */,
 				675584102B767D4F0017B658 /* FeedItem.swift in Sources */,
+				675C35302BDA20A800B102DE /* LocalFeedLoader.swift in Sources */,
 				675583FA2B767D120017B658 /* AE_Feed.docc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

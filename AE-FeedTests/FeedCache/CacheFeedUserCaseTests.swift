@@ -7,38 +7,6 @@
 
 import XCTest
 import AE_Feed
-class LocalFeedLoader{
-    private let store: FeedStore
-    private let currentDate: () -> Date
-    init(store:FeedStore,currentDate : @escaping () -> Date){
-        self.store = store
-        self.currentDate = currentDate
-    }
-    func save(_ items : [FeedItem],completion:@escaping(Error?) -> Void){
-        store.deleteCacheFeed {[weak self] error in
-            guard let self = self else {return}
-            if let cacheDeletionerror = error {
-                completion(cacheDeletionerror)
-            }else{
-                self.cache(items,with:completion)
-                
-            }
-            
-        }
-    }
-    private func cache(_ items:[FeedItem],with completion:@escaping (Error?) -> Void){
-        store.insert(items,timestamp: currentDate()){ [weak self] error in
-            guard let self = self else {return}
-            completion(error)
-        }
-    }
-}
-protocol FeedStore {
-    typealias DeletionCompletion = (Error?) -> Void
-    typealias InsertionCompletions = (Error?) -> Void
-    func deleteCacheFeed(completion:@escaping DeletionCompletion)
-    func insert(_ items : [FeedItem],timestamp: Date,completion:@escaping InsertionCompletions )
-}
 
 final class CacheFeedUserCaseTests: XCTestCase {
     
