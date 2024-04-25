@@ -15,7 +15,8 @@ class LocalFeedLoader{
         self.currentDate = currentDate
     }
     func save(_ items : [FeedItem],completion:@escaping(Error?) -> Void){
-        store.deleteCacheFeed {[unowned self] error in
+        store.deleteCacheFeed {[weak self] error in
+            guard let self = self else {return}
             if error == nil {
                 self.store.insert(items,timestamp: self.currentDate(),completion: completion)
             }else{
@@ -79,7 +80,6 @@ final class CacheFeedUserCaseTests: XCTestCase {
         XCTAssertEqual(receivedError! as NSError,deletionError)
     }
     func test_save_failsOnInsertionError(){
-        let items = [uniqueItem(),uniqueItem()]
         let (sut,store) = makeSUT()
         let insertionError = anyNSError()
         expect(sut, toCompleteWithError: insertionError) {
@@ -94,6 +94,15 @@ final class CacheFeedUserCaseTests: XCTestCase {
             store.completeInsertionSuccessfully()
         }
         
+    }
+    func test_save_doesNotDeliverDeletionErrorAfterSUTInstanceHasBeenDeallocated(){
+        let store = FeedStoreSpy()
+        var sut:LocalFeedLoader? = LocalFeedLoader(store: store, currentDate: Date.init)
+        var receivedResults = [Error?]()
+        sut?.save([uniqueItem()], completion: { receivedResults.append($0)})
+        sut = nil
+        store.completeDeletion(with:anyNSError())
+        XCTAssertTrue(receivedResults.isEmpty)
     }
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
