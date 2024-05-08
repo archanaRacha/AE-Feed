@@ -77,7 +77,7 @@ Then the app should disply an error message
 2. System delivers no feed items.
 
 ## Empty cache course (sad path):
-1. System delivers no feed items.
+1. System delivers no feed items if the cache is empty.
 
 ## Cache feed Use Case
 ## Data:
