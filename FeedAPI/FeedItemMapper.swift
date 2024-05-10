@@ -7,11 +7,11 @@
 
 import Foundation
 
-internal final class FeedItemMapper{
+internal final class FeedImageMapper{
     private static var OK_200 : Int {return 200}
     private struct Root : Decodable{
         let items :[Item]
-        var feed :[FeedItem] {
+        var feed :[FeedImage] {
             return items.map { $0.item }
         }
     }
@@ -20,8 +20,8 @@ internal final class FeedItemMapper{
         let description : String?
         let location:String?
         let image :URL
-        var item : FeedItem {
-            return FeedItem(id: id, description:description, location: location, imageURL: image)
+        var item : FeedImage {
+            return FeedImage(id: id, description:description, location: location, url: image)
         }
     }
     

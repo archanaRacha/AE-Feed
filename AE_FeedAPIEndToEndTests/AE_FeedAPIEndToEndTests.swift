@@ -46,8 +46,8 @@ final class AE_FeedAPIEndToEndTests: XCTestCase {
         wait(for: [exp], timeout: 10.0)
         return receivedResult
     }
-    private func expectedFeedItems(at index:Int) -> FeedItem {
-        return FeedItem(id: id(at : index) , description: description(at : index), location: location(at : index), imageURL: imageURL(at : index))
+    private func expectedFeedItems(at index:Int) -> FeedImage {
+        return FeedImage(id: id(at : index) , description: description(at : index), location: location(at : index), url: imageURL(at : index))
     }
     private func id(at index: Int) -> UUID {
         return UUID(uuidString: [

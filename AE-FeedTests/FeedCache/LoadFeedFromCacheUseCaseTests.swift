@@ -25,14 +25,22 @@ final class LoadFeedFromCacheUseCaseTests: XCTestCase {
         let retrievalError = anyNSError()
         let exp = expectation(description: "Wait for load completion")
         var receivedError : Error?
-        sut.load{ error in
-            receivedError = error
+        sut.load{ result in
+            switch result {
+            case let .failure(error):
+                receivedError = error
+                break
+            default:
+                XCTFail("Expected failure, got \(result) instead.")
+            }
+            
             exp.fulfill()
         }
         store.completeRetrieval(with:retrievalError )
         wait(for:[exp],timeout: 1.0)
         XCTAssertEqual(receivedError as NSError? , retrievalError)
     }
+
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -67,4 +75,11 @@ final class LoadFeedFromCacheUseCaseTests: XCTestCase {
         return NSError(domain: "any error", code: 0)
     }
     
+}
+
+private extension Array where Element == FeedImage {
+    func toLocal() -> [LocalFeedImage] {
+        return map { LocalFeedImage(id : $0.id, description:$0.description, location:$0.location , url: $0.url)
+        }
+    }
 }
