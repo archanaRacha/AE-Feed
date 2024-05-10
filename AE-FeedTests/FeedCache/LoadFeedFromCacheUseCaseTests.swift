@@ -26,12 +26,11 @@ final class LoadFeedFromCacheUseCaseTests: XCTestCase {
         let exp = expectation(description: "Wait for load completion")
         var receivedError : Error?
         sut.load{ result in
-            switch result {
+            switch result{
             case let .failure(error):
                 receivedError = error
-                break
-            default:
-                XCTFail("Expected failure, got \(result) instead.")
+            default :
+                XCTFail("Expected failure, got \(String(describing: result)) instead.")
             }
             
             exp.fulfill()
@@ -40,7 +39,26 @@ final class LoadFeedFromCacheUseCaseTests: XCTestCase {
         wait(for:[exp],timeout: 1.0)
         XCTAssertEqual(receivedError as NSError? , retrievalError)
     }
+    func test_load_deliversNoImagesOnEmptyCache(){
+        let (sut, store) = makeSUT()
+        let exp = expectation(description: "Wait for load completion")
+        var receivedImages : [FeedImage]?
+        sut.load{ result in
+            switch result {
+            case let .success(images):
+                receivedImages = images
+                break
+            default :
+                XCTFail("Expected success, got \(String(describing: result)) instead.")
+                break
+            }
 
+            exp.fulfill()
+        }
+        store.completeRetrievalWithEmptyCache()
+        wait(for:[exp],timeout: 1.0)
+        XCTAssertEqual(receivedImages , [])
+    }
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -77,9 +95,4 @@ final class LoadFeedFromCacheUseCaseTests: XCTestCase {
     
 }
 
-private extension Array where Element == FeedImage {
-    func toLocal() -> [LocalFeedImage] {
-        return map { LocalFeedImage(id : $0.id, description:$0.description, location:$0.location , url: $0.url)
-        }
-    }
-}
+

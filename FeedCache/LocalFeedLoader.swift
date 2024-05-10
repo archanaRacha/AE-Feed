@@ -10,7 +10,7 @@ public final class LocalFeedLoader{
     private let store: FeedStore
     private let currentDate: () -> Date
     public typealias saveResults = Error?
-    public typealias loadResults = LoadFeedResult
+    public typealias LoadResult = LoadFeedResult
     public init(store:FeedStore,currentDate : @escaping () -> Date){
         self.store = store
         self.currentDate = currentDate
@@ -33,8 +33,21 @@ public final class LocalFeedLoader{
             completion(error)
         }
     }
-    public func load(completion:@escaping(loadResults) -> Void){
-        store.retrieve(completion: completion)
+    public func load(completion:@escaping(LoadResult) -> Void){
+        store.retrieve { error in
+            if let error = error{
+                completion(.failure(error))
+            }else{
+                completion(.success([]))
+            }
+        }
+    }
+}
+
+private extension Array where Element == FeedImage {
+    func toLocal() -> [LocalFeedImage] {
+        return map { LocalFeedImage(id : $0.id, description:$0.description, location:$0.location , url: $0.url)
+        }
     }
 }
 
