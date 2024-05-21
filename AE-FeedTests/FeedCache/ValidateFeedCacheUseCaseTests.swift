@@ -14,6 +14,13 @@ final class ValidateFeedCacheUseCaseTests: XCTestCase {
         let (_,store) = makeSUT()
         XCTAssertEqual(store.receivedMessages , [])
     }
+    func test_validateCache_deletesCacheOnRetrievalError() {
+        let (sut, store) = makeSUT()
+        sut.validateCache()
+        let retrievalError = anyNSError()
+        store.completeRetrieval(with: retrievalError)
+        XCTAssertEqual(store.receivedMessages, [.retrieve,.deleteCachedFeed])
+    }
     //MARK: Helpers
     private func makeSUT(currentDate:@escaping() -> Date = Date.init,file:StaticString = #file, line : UInt = #line) -> (sut:LocalFeedLoader, store: FeedStoreSpy ){
         let store = FeedStoreSpy()
@@ -21,6 +28,9 @@ final class ValidateFeedCacheUseCaseTests: XCTestCase {
         trackMemoryLeaks(store,file: file,line: line)
         trackMemoryLeaks(sut,file: file,line: line)
         return (sut, store)
+    }
+    private func anyNSError() -> NSError{
+        return NSError(domain: "any error", code: 0)
     }
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

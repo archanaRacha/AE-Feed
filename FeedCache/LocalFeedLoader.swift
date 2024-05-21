@@ -59,6 +59,10 @@ public final class LocalFeedLoader{
             }
         }
     }
+    public func validateCache(){
+        store.retrieve { _ in }
+        store.deleteCacheFeed { _ in }
+    }
     private func validate(_ timestamp :Date) -> Bool{
         
         guard let maxCacheAge = calender.date(byAdding: .day , value:maxCacheAgeInDays,to:timestamp) else {
