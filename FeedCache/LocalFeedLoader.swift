@@ -41,6 +41,7 @@ public final class LocalFeedLoader{
         store.retrieve { [unowned self] retrieveCachedResult in
             switch retrieveCachedResult{
             case let .failure(error):
+                self.store.deleteCacheFeed { _ in }
                 completion(.failure(error))
                 break
             case .found(feed: let feed, timestamp: let timestamp) where self.validate(timestamp):

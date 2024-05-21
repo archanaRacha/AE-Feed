@@ -50,6 +50,13 @@ final class LoadFeedFromCacheUseCaseTests: XCTestCase {
             store.completeRetrieval(with: feed.local, timestamp: moreThanSevenDaysOldTimestamp)
         }
     }
+    func test_load_deletesCacheOnRetrievalError() {
+        let (sut, store) = makeSUT()
+        sut.load { _ in }
+        let retrievalError = anyNSError()
+        store.completeRetrieval(with: retrievalError)
+        XCTAssertEqual(store.receivedMessages, [.retrieve,.deleteCachedFeed])
+    }
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
