@@ -57,6 +57,13 @@ final class LoadFeedFromCacheUseCaseTests: XCTestCase {
         store.completeRetrieval(with: retrievalError)
         XCTAssertEqual(store.receivedMessages, [.retrieve,.deleteCachedFeed])
     }
+    func test_load_doesNotdeletesCacheOnEmptyCache() {
+        let (sut, store) = makeSUT()
+        sut.load { _ in }
+        
+        store.completeRetrievalWithEmptyCache()
+        XCTAssertEqual(store.receivedMessages, [.retrieve])
+    }
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
