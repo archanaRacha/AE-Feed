@@ -73,6 +73,15 @@ final class LoadFeedFromCacheUseCaseTests: XCTestCase {
         store.completeRetrieval(with: feed.local, timestamp: lessThanSevenDaysOldTimestamp)
         XCTAssertEqual(store.receivedMessages, [.retrieve])
     }
+    func test_load_deletesCacheOnSevenDaysOld() {
+        let feed = uniqueImageFeed()
+        let fixedCurrentDate = Date()
+        let sevenDaysOldTimestamp = fixedCurrentDate.adding(days:-7).adding(seconds:-1)
+        let (sut, store) = makeSUT(currentDate: {fixedCurrentDate})
+        sut.load { _ in }
+        store.completeRetrieval(with: feed.local, timestamp: sevenDaysOldTimestamp)
+        XCTAssertEqual(store.receivedMessages, [.retrieve,.deleteCachedFeed])
+    }
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
