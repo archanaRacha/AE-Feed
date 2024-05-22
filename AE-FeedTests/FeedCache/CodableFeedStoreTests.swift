@@ -50,7 +50,7 @@ class CodableFeedStore {
 final class CodableFeedStoreTests: XCTestCase {
 
     func test_retrieve_deliversEmptyOnEmptyCache() {
-        let sut = CodableFeedStore()
+        let sut = makeSUT()
         let exp = expectation(description: "wait for cache retrieval")
         sut.retrieve { result in
             switch result {
@@ -63,7 +63,7 @@ final class CodableFeedStoreTests: XCTestCase {
         wait(for: [exp],timeout: 1.0)
     }
     func test_retrieve_hasNoSideEffectsOnEmptyCache() {
-        let sut = CodableFeedStore()
+        let sut = makeSUT()
         let exp = expectation(description: "wait for cache retrieval")
         sut.retrieve { firstresult in
             sut.retrieve { secondresult in
@@ -78,7 +78,7 @@ final class CodableFeedStoreTests: XCTestCase {
         wait(for: [exp],timeout: 1.0)
     }
     func test_retrieveAfterInsertingToEmptyCache_deliversInsertedValues() {
-        let sut = CodableFeedStore()
+        let sut = makeSUT()
         let feed = uniqueImageFeed().local
         let timestamp = Date()
         let exp = expectation(description: "wait for cache retrieval")
@@ -122,6 +122,10 @@ final class CodableFeedStoreTests: XCTestCase {
         self.measure {
             // Put the code you want to measure the time of here.
         }
+    }
+    // _ MARK: Helpers
+    private func makeSUT() -> CodableFeedStore{
+        return CodableFeedStore()
     }
 
 }
