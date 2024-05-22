@@ -6,9 +6,28 @@
 //
 
 import XCTest
+import AE_Feed
 
+class CodableFeedStore {
+    func retrieve(completion:@escaping FeedStore.RetrievalCompletions) {
+        completion(.empty)
+    }
+}
 final class CodableFeedStoreTests: XCTestCase {
 
+    func test_retrieve_deliversEmptyOnEmptyCache() {
+        let sut = CodableFeedStore()
+        let exp = expectation(description: "wait for cache retrieval")
+        sut.retrieve { result in
+            switch result {
+            case .empty:
+                break
+            default: XCTFail("Expeccted empty result, got \(result) instead")
+            }
+            exp.fulfill()
+        }
+        wait(for: [exp],timeout: 1.0)
+    }
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
