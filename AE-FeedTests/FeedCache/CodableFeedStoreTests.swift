@@ -9,8 +9,23 @@ import XCTest
 import AE_Feed
 
 class CodableFeedStore {
+    private struct Cache : Codable {
+        let feed :[LocalFeedImage]
+        let timestamp: Date
+    }
+    private let storeURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("image-feed.store")
     func retrieve(completion:@escaping FeedStore.RetrievalCompletions) {
-        completion(.empty)
+        guard let data = try? Data(contentsOf: storeURL) else {return completion(.empty)}
+        let decoder = JSONDecoder()
+        let cache = try! decoder.decode(Cache.self, from: data)
+        
+        completion(.found(feed: cache.feed, timestamp: cache.timestamp))
+    }
+    func insert(_ feed : [LocalFeedImage],timestamp: Date,completion:@escaping FeedStore.InsertionCompletions ){
+        let encoder = JSONEncoder()
+        let encoded = try! encoder.encode(Cache(feed:feed,timestamp:timestamp))
+        try! encoded.write(to: storeURL)
+        completion(nil)
     }
 }
 final class CodableFeedStoreTests: XCTestCase {
@@ -43,13 +58,36 @@ final class CodableFeedStoreTests: XCTestCase {
         }
         wait(for: [exp],timeout: 1.0)
     }
-    
+    func test_retrieveAfterInsertingToEmptyCache_deliversInsertedValues() {
+        let sut = CodableFeedStore()
+        let feed = uniqueImageFeed().local
+        let timestamp = Date()
+        let exp = expectation(description: "wait for cache retrieval")
+        sut.insert(feed,timestamp:timestamp) { insertionError in
+            XCTAssertNil(insertionError,"Expected feed to be inserted successfully")
+            sut.retrieve { retrieveResult in
+                switch retrieveResult {
+                case let .found(feed: retrivedFeed, timestamp: retrievedTimestamp):
+                    XCTAssertEqual(retrivedFeed, feed)
+                    XCTAssertEqual(retrievedTimestamp, timestamp)
+                    break
+                default: XCTFail("Expeccted found result with feed \(feed) and timestamp \(timestamp), got \(retrieveResult) instread")
+                }
+                exp.fulfill()
+            }
+        }
+        wait(for: [exp],timeout: 1.0)
+    }
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        let storeURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("image-feed.store")
+        try? FileManager.default.removeItem(at: storeURL)
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+        let storeURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("image-feed.store")
+        try? FileManager.default.removeItem(at: storeURL)
     }
 
     func testExample() throws {
