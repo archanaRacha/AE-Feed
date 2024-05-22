@@ -100,18 +100,26 @@ final class CodableFeedStoreTests: XCTestCase {
         }
         wait(for: [exp],timeout: 1.0)
     }
+    private func setupEmptyStoreState(){
+        deleteStoreArtifacts()
+    }
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        let storeURL = testSpecificstoreURL()
-        try? FileManager.default.removeItem(at: storeURL)
+    
+        setupEmptyStoreState()
     }
-
+    private func undoStoreSideEffects(){
+        deleteStoreArtifacts()
+    }
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
-        let storeURL = testSpecificstoreURL()
-        try? FileManager.default.removeItem(at: storeURL)
+        
+        undoStoreSideEffects()
     }
 
+    private func deleteStoreArtifacts(){
+        try? FileManager.default.removeItem(at: testSpecificstoreURL())
+    }
     func testExample() throws {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
