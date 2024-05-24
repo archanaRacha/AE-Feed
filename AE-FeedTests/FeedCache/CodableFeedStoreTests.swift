@@ -79,8 +79,9 @@ final class CodableFeedStoreTests: XCTestCase {
         expect(sut, toRetrieveTwice: .found(feed: feed, timestamp: timestamp))
     }
     func test_retrieve_deliversFailureOnRetrievalError() {
-        let sut = makeSUT()
-        try! "invalid data".write(to:testSpecificstoreURL(), atomically: false,encoding:.utf8)
+        let storeURL = testSpecificstoreURL()
+        let sut = makeSUT(storeURL: storeURL)
+        try! "invalid data".write(to:storeURL, atomically: false,encoding:.utf8)
         expect(sut, toRetrieve: .failure(anyNSError()))
     }
     private func setupEmptyStoreState(){
@@ -118,8 +119,8 @@ final class CodableFeedStoreTests: XCTestCase {
         }
     }
     // _ MARK: Helpers
-    private func makeSUT(file: StaticString = #file, line:UInt = #line) -> CodableFeedStore{
-        let storeURL = testSpecificstoreURL()
+    private func makeSUT(storeURL:URL? = nil, file: StaticString = #file, line:UInt = #line) -> CodableFeedStore{
+        let storeURL = storeURL ?? testSpecificstoreURL()
         let sut = CodableFeedStore(storeURL: storeURL)
         trackMemoryLeaks(sut, file: file,line:line)
         return sut
