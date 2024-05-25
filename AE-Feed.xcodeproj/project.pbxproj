@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		67467C2F2C021FE500DD10F2 /* CodableFeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67467C2E2C021FE500DD10F2 /* CodableFeedStore.swift */; };
 		675583FA2B767D120017B658 /* AE_Feed.docc in Sources */ = {isa = PBXBuildFile; fileRef = 675583F92B767D120017B658 /* AE_Feed.docc */; };
 		675584002B767D130017B658 /* AE_Feed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 675583F52B767D120017B658 /* AE_Feed.framework */; };
 		675584052B767D130017B658 /* AE_FeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675584042B767D130017B658 /* AE_FeedTests.swift */; };
@@ -55,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		67467C2E2C021FE500DD10F2 /* CodableFeedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableFeedStore.swift; sourceTree = "<group>"; };
 		675583F52B767D120017B658 /* AE_Feed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AE_Feed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		675583F82B767D120017B658 /* AE_Feed.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AE_Feed.h; sourceTree = "<group>"; };
 		675583F92B767D120017B658 /* AE_Feed.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = AE_Feed.docc; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				676953F62BFDA5F10008BB08 /* FeedCachePolicy.swift */,
 				678DDF972BEE205D00CA5A51 /* LocalFeedImage.swift */,
 				675C35312BDA21A200B102DE /* FeedStore.swift */,
+				67467C2E2C021FE500DD10F2 /* CodableFeedStore.swift */,
 			);
 			path = FeedCache;
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 				678A183E2B83C039009FE00D /* FeedItemMapper.swift in Sources */,
 				675584102B767D4F0017B658 /* FeedItem.swift in Sources */,
 				678DDF982BEE205D00CA5A51 /* LocalFeedImage.swift in Sources */,
+				67467C2F2C021FE500DD10F2 /* CodableFeedStore.swift in Sources */,
 				676953F72BFDA5F10008BB08 /* FeedCachePolicy.swift in Sources */,
 				675C35302BDA20A800B102DE /* LocalFeedLoader.swift in Sources */,
 				675583FA2B767D120017B658 /* AE_Feed.docc in Sources */,
