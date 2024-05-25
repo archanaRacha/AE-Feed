@@ -11,7 +11,7 @@ import AE_Feed
 class FeedStoreSpy : FeedStore {
     enum ReceivedMessage : Equatable {
         case deleteCachedFeed
-        case insert([FeedImage],Date)
+        case insert([LocalFeedImage],Date)
         case retrieve
     }
     private(set) var receivedMessages = [ReceivedMessage]()
@@ -19,7 +19,7 @@ class FeedStoreSpy : FeedStore {
     private var deletionCompletions = [DeletionCompletion]()
     private var insertionCompletions = [InsertionCompletions]()
     private var retrievalCompletions = [RetrievalCompletions]()
-    func deleteCacheFeed(completion:@escaping DeletionCompletion){
+    func deleteCachedFeed(completion:@escaping DeletionCompletion){
 
         deletionCompletions.append(completion)
         receivedMessages.append(.deleteCachedFeed)
@@ -30,7 +30,7 @@ class FeedStoreSpy : FeedStore {
     func completeDeletionSuccessfully(at index:Int = 0){
         deletionCompletions[index](nil)
     }
-    func insert(_ items : [FeedImage],timestamp: Date,completion:@escaping InsertionCompletions ){
+    func insert(_ items : [LocalFeedImage],timestamp: Date,completion:@escaping InsertionCompletions ){
         insertionCompletions.append(completion)
         receivedMessages.append(.insert(items, timestamp))
     }

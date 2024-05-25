@@ -133,8 +133,8 @@ final class CacheFeedUserCaseTests: XCTestCase {
         XCTAssertEqual(receivedError as NSError?,expectedError,file: file,line: line)
     }
     
-    private func uniqueItem() -> FeedImage{
-        return FeedImage(id: UUID(), description: "any", location: "any", url: anyURL())
+    private func uniqueItem() -> LocalFeedImage{
+        return LocalFeedImage(id: UUID(), description: "any", location: "any", url: anyURL())
     }
 
 }

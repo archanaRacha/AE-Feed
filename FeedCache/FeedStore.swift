@@ -11,12 +11,13 @@ public enum RetrieveCachedResult {
     case found(feed:[LocalFeedImage], timestamp:Date)
     case failure(Error)
 }
+public typealias CachedFeed = (feed:[LocalFeedImage],timestamp:Date)
 public protocol FeedStore {
     typealias DeletionCompletion = (Error?) -> Void
     typealias InsertionCompletions = (Error?) -> Void
     typealias RetrievalCompletions = (RetrieveCachedResult) -> Void
-    func deleteCacheFeed(completion:@escaping DeletionCompletion)
-    func insert(_ items : [FeedImage],timestamp: Date,completion:@escaping InsertionCompletions )
+    func deleteCachedFeed(completion:@escaping DeletionCompletion)
+    func insert(_ items : [LocalFeedImage],timestamp: Date,completion:@escaping InsertionCompletions )
     func retrieve(completion:@escaping RetrievalCompletions)
    
 }
