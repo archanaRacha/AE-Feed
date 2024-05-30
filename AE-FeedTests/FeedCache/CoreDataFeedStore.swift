@@ -13,8 +13,8 @@ public final class CoreDataFeedStore : FeedStore {
 //    public init() {}
     private let container: NSPersistentContainer
     private let context: NSManagedObjectContext
-    public init(bundle: Bundle = .main) throws {
-        container = try NSPersistentContainer.load(modelName: "CoreDataFeedStore", in: bundle)
+    public init(storeURL : URL, bundle: Bundle = .main) throws {
+        container = try NSPersistentContainer.load(modelName: "CoreDataFeedStore", url: storeURL, in: bundle)
         context = container.newBackgroundContext()
     }
     public func deleteCachedFeed(completion: @escaping DeletionCompletion) {
@@ -32,10 +32,11 @@ private extension  NSPersistentContainer {
         case modelNotFound
         case failedToLoadPersistentStores(Error)
     }
-    static func load(modelName name: String, in bundle: Bundle) throws -> NSPersistentContainer {
+    static func load(modelName name: String, url : URL, in bundle: Bundle) throws -> NSPersistentContainer {
         guard let model = NSManagedObjectModel.with(name: name, in: bundle) else{
             throw LoadingError.modelNotFound
         }
+        let description = NSPersistentStoreDescription(url: url)
         let container = NSPersistentContainer(name: name, managedObjectModel: model)
         var loadError: Error?
         
