@@ -6,10 +6,12 @@
 //
 
 import XCTest
+import AE_Feed
 
 final class CoreDataFeedStoreTests: XCTestCase, FeedStoreSpecs {
     func test_retrieve_deliversEmptyOnEmptyCache() {
-        
+        let sut = makeSUT()
+        assertThatRetrieveDeliversEmptyOnEmptyCache(on: sut)
     }
     func test_retrieve_hasNoSideEffectsOnEmptyCache() {
         
@@ -68,5 +70,10 @@ final class CoreDataFeedStoreTests: XCTestCase, FeedStoreSpecs {
             // Put the code you want to measure the time of here.
         }
     }
-
+    //MARK: Helpers
+    private func makeSUT(file: StaticString = #file, line : UInt = #line) -> FeedStore{
+        let sut = CoreDataFeedStore()
+        trackMemoryLeaks(sut, file: file, line: line)
+        return sut
+    }
 }
