@@ -8,30 +8,8 @@
 import XCTest
 import AE_Feed
 
-internal protocol FeedStoreSpecs {
-     func test_retrieve_deliversEmptyOnEmptyCache()
-     func test_retrieve_hasNoSideEffectsOnEmptyCache()
-     func test_retrieve_deliversFoundValuesOnNonEmptyCache()
-     func test_retrieve_hasNoSideEffectsOnNonEmptyCache()
-     
-     func test_insert_overridesPreviouslyInsertedCacheValues()
-    
-     func test_delete_hasNoSideEffectsOnEmptyCache()
-     func test_delete_emptiesPreviouslyInsertedCache()
-     
-     func test_storeSideEffects_runSerially()
-}
-protocol FailableRetrieveFeedStoreSpecs {
-    func test_retrieve_deliversFailureOnRetrievalError()
-    func test_retrieve_hasNoSideEffectsOnFailure()
-}
-protocol FailableInsertFeedStoreSpecs {
-    func test_insert_deliversErrorOnInsertionError()
-}
-protocol FailableDeleteFeedStoreSpecs {
-    func test_delete_deliversErrorOnDeletionError()
-}
-final class CodableFeedStoreTests: XCTestCase {
+
+final class CodableFeedStoreTests: XCTestCase,FailableFeedStore {
 
     func test_retrieve_deliversEmptyOnEmptyCache() {
         let sut = makeSUT()
@@ -109,6 +87,7 @@ final class CodableFeedStoreTests: XCTestCase {
         insert(cache: (feed,timestamp), to: sut)
         expect(sut, toRetrieve: .empty)
     }
+ 
     func test_delete_deliversNoErrorOnEmptyCache() {
         let sut = makeSUT()
 
