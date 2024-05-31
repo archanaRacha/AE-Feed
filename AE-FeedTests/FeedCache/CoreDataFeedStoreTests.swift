@@ -86,6 +86,6 @@ final class CoreDataFeedStoreTests: XCTestCase, FeedStoreSpecs {
         let storeURL = URL(fileURLWithPath: "/dev/null")
         let sut = try! CoreDataFeedStore(storeURL: storeURL, bundle: storeBundle)
         trackMemoryLeaks(sut, file: file, line: line)
-        return sut
+        return sut as FeedStore
     }
 }

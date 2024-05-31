@@ -146,7 +146,7 @@ final class CodableFeedStoreTests: XCTestCase,FailableFeedStore {
         let storeURL = storeURL ?? testSpecificstoreURL()
         let sut = CodableFeedStore(storeURL: storeURL)
         trackMemoryLeaks(sut, file: file,line:line)
-        return sut
+        return sut as FeedStore
         
     }
   
