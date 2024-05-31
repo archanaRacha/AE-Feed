@@ -6,8 +6,8 @@
 //
 
 import Foundation
-import AE_Feed
 import CoreData
+import AE_Feed
 
 public final class CoreDataFeedStore : FeedStore {
 //    public init() {}
