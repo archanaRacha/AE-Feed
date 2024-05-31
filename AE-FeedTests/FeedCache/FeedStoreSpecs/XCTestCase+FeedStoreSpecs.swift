@@ -22,7 +22,7 @@ extension FeedStoreSpecs where Self: XCTestCase {
 
         insert(cache: (feed, timestamp), to: sut)
 
-            expect(sut, toRetrieve: .found(feed: feed, timestamp: timestamp), file: file, line: line)
+        expect(sut, toRetrieve: .found(feed: feed, timestamp: timestamp), file: file, line: line)
         }
     func assertThatRetrieveHasNoSideEffectsOnNonEmptyCache(on sut: FeedStore, file: StaticString = #file, line: UInt = #line) {
             let feed = uniqueImageFeed().local
@@ -135,7 +135,7 @@ extension FeedStoreSpecs where Self: XCTestCase {
         expect(sut, toRetrieve: expectedResult,file: file,line: line)
     }
     func expect(_ sut: FeedStore,toRetrieve expectedResult:RetrieveCachedResult,file: StaticString = #file, line : UInt = #line){
-        let exp = expectation(description: "Wait for the cache retrieval")
+
         sut.retrieve { retrievedResult in
             switch (expectedResult, retrievedResult) {
             case (.empty, .empty),(.failure,.failure):
@@ -146,9 +146,9 @@ extension FeedStoreSpecs where Self: XCTestCase {
             default:
                 XCTFail("Expected to retrieve \(expectedResult), got \(retrievedResult) instead", file: file, line: line)
             }
-            exp.fulfill()
+
         }
-        wait(for: [exp], timeout: 1.0)
+
     }
 
 }
