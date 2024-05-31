@@ -18,7 +18,15 @@ public final class CoreDataFeedStore : FeedStore {
         context = container.newBackgroundContext()
     }
     public func deleteCachedFeed(completion: @escaping DeletionCompletion) {
-        completion(nil)
+        let context = self.context
+        context.perform {
+            do {
+                try ManagedCache.find(in: context).map(context.delete).map(context.save)
+                completion(nil)
+            }catch {
+                completion(error)
+            }
+        }
     }
     public func insert(_ feed: [AE_Feed.LocalFeedImage], timestamp: Date, completion: @escaping InsertionCompletions) {
         let context = self.context
