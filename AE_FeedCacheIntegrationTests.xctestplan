@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "4FBC548C-C9CD-48E0-BA6E-BBE5195D485A",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:AE-Feed.xcodeproj",
+        "identifier" : "67AE78B62C0ED57400AA0D2C",
+        "name" : "AE_FeedCacheIntegrationTests"
+      }
+    }
+  ],
+  "version" : 1
+}
