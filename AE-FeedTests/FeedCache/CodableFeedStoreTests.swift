@@ -101,6 +101,17 @@ final class CodableFeedStoreTests: XCTestCase,FailableFeedStore {
         assertThatDeleteHasNoSideEffectsOnDeletionError(on: sut)
         
     }
+    
+    override func setUpWithError() throws {
+        // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+        setupEmptyStoreState()
+    }
+    override func tearDownWithError() throws {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        
+        undoStoreSideEffects()
+    }
     func test_storeSideEffects_runSerially(){
         let sut = makeSUT()
         assertThatSideEffectsRunSerially(on: sut)
@@ -110,19 +121,10 @@ final class CodableFeedStoreTests: XCTestCase,FailableFeedStore {
     private func setupEmptyStoreState(){
         deleteStoreArtifacts()
     }
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    
-        setupEmptyStoreState()
-    }
     private func undoStoreSideEffects(){
         deleteStoreArtifacts()
     }
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        
-        undoStoreSideEffects()
-    }
+    
 
     private func deleteStoreArtifacts(){
         try? FileManager.default.removeItem(at: testSpecificstoreURL())
