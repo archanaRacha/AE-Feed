@@ -97,7 +97,7 @@ final class LoadFeedFromRemoteUseCaseTests: XCTestCase {
         trackMemoryLeaks(client,file:file,line:line)
         return(sut, client)
     }
-    private func failure(_ error:RemoteFeedLoader.Error) -> RemoteFeedLoader.Result{
+    private func failure(_ error:RemoteFeedLoader.Error) -> RemoteFeedLoader.Result {
         return .failure(error)
     }
   

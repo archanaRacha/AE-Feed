@@ -46,7 +46,7 @@ extension LocalFeedLoader : FeedLoader {
     public func load(completion:@escaping(LoadResult) -> Void){
         store.retrieve { [weak self] retrieveCachedResult in
             guard let self = self else{return}
-            switch retrieveCachedResult{
+            switch retrieveCachedResult {
             case let .failure(error):
                 completion(.failure(error))
                 break
@@ -65,7 +65,7 @@ extension LocalFeedLoader{
     public func validateCache(){
         store.retrieve { [weak self] result in
             guard let self = self else{return }
-            switch result{
+            switch result {
             case .failure(_):
                 self.store.deleteCachedFeed { _ in }
                 break

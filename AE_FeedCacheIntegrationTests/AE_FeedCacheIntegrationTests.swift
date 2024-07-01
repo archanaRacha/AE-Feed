@@ -61,7 +61,7 @@ final class AE_FeedCacheIntegrationTests: XCTestCase {
     private func expect(_ sut: LocalFeedLoader, toLoad expectedFeed: [FeedImage], file: StaticString = #file, line: UInt = #line){
         let exp = expectation(description: "Wait for load completion")
         sut.load { result in
-            switch result{
+            switch result {
             case let .success(loadedFeed):
                 XCTAssertEqual(loadedFeed, expectedFeed,file:file,line: line)
             case let .failure(error):
