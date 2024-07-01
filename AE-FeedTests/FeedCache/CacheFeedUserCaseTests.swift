@@ -46,8 +46,11 @@ final class CacheFeedUserCaseTests: XCTestCase {
         let deletionError = anyNSError()
         let exp = expectation(description: "wait for save completion")
         var receivedError:Error?
-        sut.save(feed){ error in
-            receivedError = error
+        sut.save(feed){ result in
+            if case let Result.failure(error) = result {
+                receivedError = error
+            }
+            
             exp.fulfill()
         }
         store.completeDeletion(with:deletionError)
@@ -124,8 +127,8 @@ final class CacheFeedUserCaseTests: XCTestCase {
     private func expect(_ sut : LocalFeedLoader, toCompleteWithError expectedError:NSError?,when action: () -> Void,file:StaticString = #file, line : UInt = #line){
         let exp = expectation(description: "wait for save completion")
         var receivedError:Error?
-        sut.save(uniqueImageFeed().models){ error in
-            receivedError = error
+        sut.save(uniqueImageFeed().models){ result in
+            if case let Result.failure(error) = result { receivedError = error }
             exp.fulfill()
         }
         action()
