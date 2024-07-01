@@ -297,8 +297,8 @@
 			children = (
 				678B73192B79DA590015E40D /* RemoteFeedLoader.swift */,
 				678A183B2B83BFE7009FE00D /* HTTPClient.swift */,
-				678A183D2B83C039009FE00D /* FeedItemMapper.swift */,
 				676BCDF22B9C98F8007136BB /* URLSessionHTTPClient.swift */,
+				678A183D2B83C039009FE00D /* FeedItemMapper.swift */,
 			);
 			path = FeedAPI;
 			sourceTree = "<group>";
