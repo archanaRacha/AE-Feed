@@ -1,0 +1,29 @@
+{
+  "configurations" : [
+    {
+      "id" : "735F67FB-3776-4718-BB37-EE83C31BFBFC",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:AE-Feed.xcodeproj",
+      "identifier" : "675583F42B767D120017B658",
+      "name" : "AE-Feed"
+    },
+    "testExecutionOrdering" : "random"
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:AE-Feed.xcodeproj",
+        "identifier" : "676BCDFD2B9DC18D007136BB",
+        "name" : "AE_FeedAPIEndToEndTests"
+      }
+    }
+  ],
+  "version" : 1
+}
