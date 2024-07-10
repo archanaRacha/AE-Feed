@@ -173,12 +173,7 @@
 		675583EB2B767D120017B658 = {
 			isa = PBXGroup;
 			children = (
-				67AE78C12C0ED60C00AA0D2C /* AE_FeedCacheIntegrationTests.xctestplan */,
-				678826262BB1914500E1266B /* README.md */,
-				675C352E2BDA207400B102DE /* FeedCache */,
-				675584132B767F820017B658 /* FeedFeature */,
 				675583F72B767D120017B658 /* AE-Feed */,
-				678B73182B79DA320015E40D /* FeedAPI */,
 				675584032B767D130017B658 /* AE-FeedTests */,
 				676BCDFF2B9DC18D007136BB /* AE_FeedAPIEndToEndTests */,
 				67AE78B82C0ED57400AA0D2C /* AE_FeedCacheIntegrationTests */,
@@ -200,6 +195,10 @@
 		675583F72B767D120017B658 /* AE-Feed */ = {
 			isa = PBXGroup;
 			children = (
+				678826262BB1914500E1266B /* README.md */,
+				675C352E2BDA207400B102DE /* FeedCache */,
+				675584132B767F820017B658 /* FeedFeature */,
+				678B73182B79DA320015E40D /* FeedAPI */,
 				675583F82B767D120017B658 /* AE_Feed.h */,
 				675583F92B767D120017B658 /* AE_Feed.docc */,
 			);
@@ -306,6 +305,7 @@
 		67AE78B82C0ED57400AA0D2C /* AE_FeedCacheIntegrationTests */ = {
 			isa = PBXGroup;
 			children = (
+				67AE78C12C0ED60C00AA0D2C /* AE_FeedCacheIntegrationTests.xctestplan */,
 				67AE78B92C0ED57400AA0D2C /* AE_FeedCacheIntegrationTests.swift */,
 			);
 			path = AE_FeedCacheIntegrationTests;
@@ -740,6 +740,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.archanaDev.AE-Feed";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "macosx iphonesimulator iphoneos";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -774,6 +775,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.archanaDev.AE-Feed";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "macosx iphonesimulator iphoneos";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -792,6 +794,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.archanaDev.AE-FeedTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "macosx iphonesimulator iphoneos";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 			};
@@ -810,6 +813,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.archanaDev.AE-FeedTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "macosx iphonesimulator iphoneos";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 			};
