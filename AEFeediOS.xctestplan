@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "EF41A228-D4DC-4BBA-84A6-5D73CBEEFC15",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:AE-Feed.xcodeproj",
+        "identifier" : "67AB24E82C3E961600A53A3F",
+        "name" : "AEFeediOSTests"
+      }
+    }
+  ],
+  "version" : 1
+}
