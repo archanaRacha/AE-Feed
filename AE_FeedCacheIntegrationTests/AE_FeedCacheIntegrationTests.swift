@@ -18,26 +18,8 @@ final class AE_FeedCacheIntegrationTests: XCTestCase {
         let sutToPerformSave = makeSUT()
         let sutToPerformLoad = makeSUT()
         let feed = uniqueImageFeed().models
-        
-        let saveExp = expectation(description: "wait for save completion")
-        sutToPerformSave.save(feed) { saveError in
-            XCTAssertNil(saveError,"Expected to save feed successfully")
-            saveExp.fulfill()
-        }
-        wait(for: [saveExp], timeout: 1.0)
-        let loadExp = expectation(description: "wait for load completion")
-        sutToPerformLoad.load { loadResult in
-            switch loadResult {
-            case let .success(imageFeed): 
-                XCTAssertEqual(imageFeed,feed)
-                break
-                
-            case let .failure(error):
-                XCTFail("Expected successful feed result, got \(error) instead")
-            }
-            loadExp.fulfill()
-        }
-        wait(for: [loadExp], timeout: 1.0)
+        save(feed, with:sutToPerformSave)
+        expect(sutToPerformLoad, toLoad: feed)
     }
     func test_save_orverridesItemsSavedOnASeparateInstance(){
         let sutToPerformFirstSave = makeSUT()

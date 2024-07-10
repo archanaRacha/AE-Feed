@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
    LastUpgradeVersion = "1530"
-   version = "1.7">
+   version = "2.1">
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES"
@@ -13,13 +13,9 @@
             buildForProfiling = "NO"
             buildForArchiving = "NO"
             buildForAnalyzing = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "67AE78B62C0ED57400AA0D2C"
-               BuildableName = "AE_FeedCacheIntegrationTests.xctest"
-               BlueprintName = "AE_FeedCacheIntegrationTests"
-               ReferencedContainer = "container:AE-Feed.xcodeproj">
-            </BuildableReference>
+            <TestPlanReference
+               reference = "container:AE_FeedAPIEndToEndTests 1.xctestplan">
+            </TestPlanReference>
          </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
@@ -30,7 +26,7 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:AE_FeedCacheIntegrationTests/AE_FeedCacheIntegrationTests.xctestplan"
+            reference = "container:AE_FeedAPIEndToEndTests 1.xctestplan"
             default = "YES">
          </TestPlanReference>
       </TestPlans>
@@ -39,9 +35,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "67AE78B62C0ED57400AA0D2C"
-               BuildableName = "AE_FeedCacheIntegrationTests.xctest"
-               BlueprintName = "AE_FeedCacheIntegrationTests"
+               BlueprintIdentifier = "676BCDFD2B9DC18D007136BB"
+               BuildableName = "AE_FeedAPIEndToEndTests.xctest"
+               BlueprintName = "AE_FeedAPIEndToEndTests"
                ReferencedContainer = "container:AE-Feed.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -67,9 +63,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "67AE78B62C0ED57400AA0D2C"
-            BuildableName = "AE_FeedCacheIntegrationTests.xctest"
-            BlueprintName = "AE_FeedCacheIntegrationTests"
+            BlueprintIdentifier = "676BCDFD2B9DC18D007136BB"
+            BuildableName = "AE_FeedAPIEndToEndTests.xctest"
+            BlueprintName = "AE_FeedAPIEndToEndTests"
             ReferencedContainer = "container:AE-Feed.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
