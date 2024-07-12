@@ -9,7 +9,7 @@ import XCTest
 import UIKit
 import AE_Feed
 
-final class FeedViewcontroller : UITableViewController {
+final class FeedViewController : UITableViewController {
     private var loader : FeedLoader?
     convenience init(loader: FeedLoader) {
         self.init()
@@ -42,13 +42,13 @@ final class FeedViewControllerTests: XCTestCase {
         XCTAssertEqual(loader.loadCallCount, 1)
     }
     
-    func test_pullToRefresh_loadsFeed(){
+    func test_userInitiatedFeedReload_reloadsFeed(){
         let (sut,loader) = makeSUT()
         sut.loadViewIfNeeded()
-        sut.refreshControl?.simulatePullToRefresh()
+        sut.simulateUserInitiatedFeedReload()
         XCTAssertEqual(loader.loadCallCount, 2)
         
-        sut.refreshControl?.simulatePullToRefresh()
+        sut.simulateUserInitiatedFeedReload()
         XCTAssertEqual(loader.loadCallCount, 3)
    }
     
@@ -63,14 +63,14 @@ final class FeedViewControllerTests: XCTestCase {
         loader.completeFeedLoading()
         XCTAssertEqual(sut.refreshControl?.isRefreshing, false)
     }
-    func test_pullToRefresh_showsLoadingIndicator() {
+    func test_userInitiatedFeedReload_showsLoadingIndicator() {
             let (sut, _) = makeSUT()
 
-            sut.refreshControl?.simulatePullToRefresh()
+           sut.simulateUserInitiatedFeedReload()
 
 //            XCTAssertEqual(sut.refreshControl?.isRefreshing, true)
         }
-    func test_pullToRefresh_hidesLoadingIndicatorOnLoaderCompletion() {
+    func test_userInitiatedFeedReload_hidesLoadingIndicatorOnLoaderCompletion() {
             let (sut, loader) = makeSUT()
 
             sut.refreshControl?.simulatePullToRefresh()
@@ -81,9 +81,9 @@ final class FeedViewControllerTests: XCTestCase {
 
 // MARK: Helpers
     
-    private func makeSUT(file: StaticString = #file,line: UInt = #line) -> (sut : FeedViewcontroller,loader:LoaderSpy){
+    private func makeSUT(file: StaticString = #file,line: UInt = #line) -> (sut : FeedViewController,loader:LoaderSpy){
         let loader = LoaderSpy()
-        let sut = FeedViewcontroller(loader: loader)
+        let sut = FeedViewController(loader: loader)
         trackMemoryLeaks(loader, file: file, line: line)
         trackMemoryLeaks(sut, file: file, line: line)
         return (sut,loader)
@@ -142,3 +142,9 @@ private extension UIRefreshControl{
         }
     }
 }
+private extension FeedViewController {
+    func simulateUserInitiatedFeedReload() {
+        refreshControl?.simulatePullToRefresh()
+    }
+}
+
