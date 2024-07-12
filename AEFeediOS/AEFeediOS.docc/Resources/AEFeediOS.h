@@ -15,11 +15,11 @@ FOUNDATION_EXPORT const unsigned char AEFeediOSVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <AEFeediOS/PublicHeader.h>
 
-framework module AEFeediOS {
-    umbrella header "Bar.h"
-
-    header "other-header.h"
-
-    export *
-    module * { export * }
-}
+//framework module AEFeediOS {
+//    umbrella header "Bar.h"
+//
+//    header "other-header.h"
+//
+//    export *
+//    module * { export * }
+//}
