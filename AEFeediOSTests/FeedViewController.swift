@@ -19,7 +19,7 @@ final class FeedViewController : UITableViewController {
     private var feedLoader : FeedLoader?
     private var imageLoader : FeedImageDataLoader?
     private var tableModel = [FeedImage]()
-    private var task = [IndexPath : FeedImageDataLoaderTask]()
+    private var tasks = [IndexPath : FeedImageDataLoaderTask]()
     convenience init(feedLoader: FeedLoader,imageLoader: FeedImageDataLoader) {
         self.init()
         self.feedLoader = feedLoader
@@ -53,17 +53,24 @@ final class FeedViewController : UITableViewController {
         cell.feedImageView.image = nil
         cell.feedImageRetryButton.isHidden = true
         cell.feedImageContainer.startShimmering()
-        task[indexPath] = imageLoader?.loadImageData(from:cellModel.url){ [weak cell] result in
-            let data = try? result.get()
-            let image = data.map(UIImage.init) ?? nil
-            cell?.feedImageView.image = image
-            cell?.feedImageRetryButton.isHidden = (image != nil)
-            cell?.feedImageContainer.stopShimmering()
+        let loadImage = { [weak self, weak cell] in
+            guard let self = self else { return }
+
+            self.tasks[indexPath] = self.imageLoader?.loadImageData(from: cellModel.url) { [weak cell] result in
+                let data = try? result.get()
+                let image = data.map(UIImage.init) ?? nil
+                cell?.feedImageView.image = image
+                cell?.feedImageRetryButton.isHidden = (image != nil)
+                cell?.feedImageContainer.stopShimmering()
+            }
         }
+
+        cell.onRetry = loadImage
+        loadImage()
         return cell
     }
     public override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        task[indexPath]?.cancel()
-        task[indexPath] = nil
+        tasks[indexPath]?.cancel()
+        tasks[indexPath] = nil
     }
 }
