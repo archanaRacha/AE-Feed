@@ -42,6 +42,7 @@
 		678B731C2B79DBAF0015E40D /* LoadFeedFromRemoteUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678B731B2B79DBAF0015E40D /* LoadFeedFromRemoteUseCaseTests.swift */; };
 		678DDF962BEE202600CA5A51 /* FeedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678DDF952BEE202600CA5A51 /* FeedImage.swift */; };
 		678DDF982BEE205D00CA5A51 /* LocalFeedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678DDF972BEE205D00CA5A51 /* LocalFeedImage.swift */; };
+		67920A682C7A689200F76F50 /* UIView+Shimmering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67920A672C7A689200F76F50 /* UIView+Shimmering.swift */; };
 		679D26842C521445004037B3 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DA42542C4A2F0D00437481 /* FeedViewController.swift */; };
 		67AB24E42C3E961500A53A3F /* AEFeediOS.docc in Sources */ = {isa = PBXBuildFile; fileRef = 67AB24E32C3E961500A53A3F /* AEFeediOS.docc */; };
 		67AB24FE2C41107C00A53A3F /* AE_Feed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 675583F52B767D120017B658 /* AE_Feed.framework */; platformFilter = ios; };
@@ -134,6 +135,7 @@
 		678B731B2B79DBAF0015E40D /* LoadFeedFromRemoteUseCaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadFeedFromRemoteUseCaseTests.swift; sourceTree = "<group>"; };
 		678DDF952BEE202600CA5A51 /* FeedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImage.swift; sourceTree = "<group>"; };
 		678DDF972BEE205D00CA5A51 /* LocalFeedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFeedImage.swift; sourceTree = "<group>"; };
+		67920A672C7A689200F76F50 /* UIView+Shimmering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shimmering.swift"; sourceTree = "<group>"; };
 		67AB24DA2C3E542700A53A3F /* AE_FeedAPIEndToEndTests 1.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "AE_FeedAPIEndToEndTests 1.xctestplan"; sourceTree = "<group>"; };
 		67AB24E02C3E961500A53A3F /* AEFeediOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AEFeediOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67AB24E32C3E961500A53A3F /* AEFeediOS.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = AEFeediOS.docc; sourceTree = "<group>"; };
@@ -363,6 +365,7 @@
 			isa = PBXGroup;
 			children = (
 				67DA42542C4A2F0D00437481 /* FeedViewController.swift */,
+				67920A672C7A689200F76F50 /* UIView+Shimmering.swift */,
 				67DA42502C41288D00437481 /* FeedViewControllerTests.swift */,
 				677CB8D72C75AA8200E7D9CA /* FeedImageCell.swift */,
 			);
@@ -709,6 +712,7 @@
 			files = (
 				67DA42512C41288D00437481 /* FeedViewControllerTests.swift in Sources */,
 				677CB8D82C75AA8200E7D9CA /* FeedImageCell.swift in Sources */,
+				67920A682C7A689200F76F50 /* UIView+Shimmering.swift in Sources */,
 				679D26842C521445004037B3 /* FeedViewController.swift in Sources */,
 				67AB24FF2C4112F600A53A3F /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 			);
