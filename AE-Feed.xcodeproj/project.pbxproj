@@ -27,6 +27,7 @@
 		676BCE082B9DCF96007136BB /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675CA4B12B9834E4003E4591 /* XCTestCase+MemoryLeakTracking.swift */; };
 		6775D57D2BEB515300C98E08 /* LoadFeedFromCacheUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6775D57C2BEB515300C98E08 /* LoadFeedFromCacheUseCaseTests.swift */; };
 		6775D5802BEB534400C98E08 /* FeedStoreSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6775D57F2BEB534400C98E08 /* FeedStoreSpy.swift */; };
+		677CB8D82C75AA8200E7D9CA /* FeedImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677CB8D72C75AA8200E7D9CA /* FeedImageCell.swift */; };
 		678418AE2C08461500EBD967 /* FeedStoreSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678418AD2C08460000EBD967 /* FeedStoreSpecs.swift */; };
 		678418B02C088DD900EBD967 /* XCTestCase+FeedStoreSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678418AF2C088DD900EBD967 /* XCTestCase+FeedStoreSpecs.swift */; };
 		678418B22C0893A200EBD967 /* XCTestCase+FailableRetrieveFeedStoreSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678418B12C0893A200EBD967 /* XCTestCase+FailableRetrieveFeedStoreSpecs.swift */; };
@@ -41,6 +42,7 @@
 		678B731C2B79DBAF0015E40D /* LoadFeedFromRemoteUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678B731B2B79DBAF0015E40D /* LoadFeedFromRemoteUseCaseTests.swift */; };
 		678DDF962BEE202600CA5A51 /* FeedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678DDF952BEE202600CA5A51 /* FeedImage.swift */; };
 		678DDF982BEE205D00CA5A51 /* LocalFeedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678DDF972BEE205D00CA5A51 /* LocalFeedImage.swift */; };
+		679D26842C521445004037B3 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DA42542C4A2F0D00437481 /* FeedViewController.swift */; };
 		67AB24E42C3E961500A53A3F /* AEFeediOS.docc in Sources */ = {isa = PBXBuildFile; fileRef = 67AB24E32C3E961500A53A3F /* AEFeediOS.docc */; };
 		67AB24FE2C41107C00A53A3F /* AE_Feed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 675583F52B767D120017B658 /* AE_Feed.framework */; platformFilter = ios; };
 		67AB24FF2C4112F600A53A3F /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675CA4B12B9834E4003E4591 /* XCTestCase+MemoryLeakTracking.swift */; };
@@ -115,6 +117,7 @@
 		676BCE0A2B9DD35A007136BB /* AE_FeedAPIEndToEnd.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = AE_FeedAPIEndToEnd.xctestplan; sourceTree = SOURCE_ROOT; };
 		6775D57C2BEB515300C98E08 /* LoadFeedFromCacheUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadFeedFromCacheUseCaseTests.swift; sourceTree = "<group>"; };
 		6775D57F2BEB534400C98E08 /* FeedStoreSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedStoreSpy.swift; sourceTree = "<group>"; };
+		677CB8D72C75AA8200E7D9CA /* FeedImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageCell.swift; sourceTree = "<group>"; };
 		678418AD2C08460000EBD967 /* FeedStoreSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedStoreSpecs.swift; sourceTree = "<group>"; };
 		678418AF2C088DD900EBD967 /* XCTestCase+FeedStoreSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+FeedStoreSpecs.swift"; sourceTree = "<group>"; };
 		678418B12C0893A200EBD967 /* XCTestCase+FailableRetrieveFeedStoreSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+FailableRetrieveFeedStoreSpecs.swift"; sourceTree = "<group>"; };
@@ -142,6 +145,7 @@
 		67DA42482C41222900437481 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		67DA424A2C41260C00437481 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		67DA42502C41288D00437481 /* FeedViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewControllerTests.swift; sourceTree = "<group>"; };
+		67DA42542C4A2F0D00437481 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		67F2BCA62C09BE9900E93AA6 /* CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelpers.swift; sourceTree = "<group>"; };
 		67F2BCA82C09BF5800E93AA6 /* ManagedCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedCache.swift; sourceTree = "<group>"; };
 		67F2BCAA2C09BF8600E93AA6 /* ManagedFeedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedFeedImage.swift; sourceTree = "<group>"; };
@@ -358,7 +362,9 @@
 		67AB24ED2C3E961700A53A3F /* AEFeediOSTests */ = {
 			isa = PBXGroup;
 			children = (
+				67DA42542C4A2F0D00437481 /* FeedViewController.swift */,
 				67DA42502C41288D00437481 /* FeedViewControllerTests.swift */,
+				677CB8D72C75AA8200E7D9CA /* FeedImageCell.swift */,
 			);
 			path = AEFeediOSTests;
 			sourceTree = "<group>";
@@ -702,6 +708,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				67DA42512C41288D00437481 /* FeedViewControllerTests.swift in Sources */,
+				677CB8D82C75AA8200E7D9CA /* FeedImageCell.swift in Sources */,
+				679D26842C521445004037B3 /* FeedViewController.swift in Sources */,
 				67AB24FF2C4112F600A53A3F /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -748,6 +756,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -815,6 +824,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
