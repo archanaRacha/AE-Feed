@@ -20,7 +20,6 @@ final class FeedImageCellController{
     }
     
     func view() -> UITableViewCell{
-//        let cellModel = tableModel[indexPath.row]
         let cell = FeedImageCell()
         cell.locationContainer.isHidden = (model.location == nil)
         cell.locationLabel.text = model.location

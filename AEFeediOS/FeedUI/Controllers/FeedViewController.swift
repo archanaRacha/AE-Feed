@@ -48,8 +48,8 @@ final class FeedViewController : UITableViewController,UITableViewDataSourcePref
 
     private func cellController(forRowAt indexPath: IndexPath) -> FeedImageCellController {
         return tableModel[indexPath.row]
-        }
+    }
     private func cancelCellControllerLoad(forRowAt indexPath: IndexPath) {
         cellController(forRowAt: indexPath).cancelLoad()
-        }
+    }
 }
