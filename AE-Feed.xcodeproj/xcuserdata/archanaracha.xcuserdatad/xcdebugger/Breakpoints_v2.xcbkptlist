@@ -93,36 +93,6 @@
             endingLineNumber = "17"
             landmarkName = "get(from:completion:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "13E39225-6577-4F8B-A9EF-A420CA4259C7 - f62aff5a59f93256"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "AE_Feed.URLSessionHTTPClient.get(from: Foundation.URL, completion: (Swift.Result&lt;(Foundation.Data, __C.NSHTTPURLResponse), Swift.Error&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "AE_Feed"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/archanaracha/Desktop/EssenstialDeveloper/Untitled/AE-Feed/FeedAPI/URLSessionHTTPClient.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17">
-               </Location>
-               <Location
-                  uuid = "13E39225-6577-4F8B-A9EF-A420CA4259C7 - fc1d64b2ed408225"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in AE_Feed.URLSessionHTTPClient.get(from: Foundation.URL, completion: (Swift.Result&lt;(Foundation.Data, __C.NSHTTPURLResponse), Swift.Error&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "AE_Feed"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/archanaracha/Desktop/EssenstialDeveloper/Untitled/AE-Feed/FeedAPI/URLSessionHTTPClient.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -155,36 +125,6 @@
             endingLineNumber = "18"
             landmarkName = "get(from:completion:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "EE13E431-B444-4CF5-964B-C24950F4B46C - fc1d64b2ed4082c2"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in AE_Feed.URLSessionHTTPClient.get(from: Foundation.URL, completion: (Swift.Result&lt;(Foundation.Data, __C.NSHTTPURLResponse), Swift.Error&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "AE_Feed"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/archanaracha/Desktop/EssenstialDeveloper/Untitled/AE-Feed/FeedAPI/URLSessionHTTPClient.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "18"
-                  endingLineNumber = "18">
-               </Location>
-               <Location
-                  uuid = "EE13E431-B444-4CF5-964B-C24950F4B46C - 4e30ac5e2dd949dc"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () throws -&gt; (Foundation.Data, __C.NSHTTPURLResponse) in closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in AE_Feed.URLSessionHTTPClient.get(from: Foundation.URL, completion: (Swift.Result&lt;(Foundation.Data, __C.NSHTTPURLResponse), Swift.Error&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "AE_Feed"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/archanaracha/Desktop/EssenstialDeveloper/Untitled/AE-Feed/FeedAPI/URLSessionHTTPClient.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "18"
-                  endingLineNumber = "18">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
