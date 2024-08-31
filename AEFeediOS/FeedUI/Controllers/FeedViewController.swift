@@ -6,8 +6,6 @@
 //
 
 import UIKit
-import AE_Feed
-import AEFeediOS
 
 final class FeedViewController : UITableViewController,UITableViewDataSourcePrefetching {
     private var refreshController: FeedRefreshViewController?
