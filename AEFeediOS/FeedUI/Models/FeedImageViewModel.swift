@@ -7,17 +7,19 @@
 
 import Foundation
 import AE_Feed
-import UIKit
 
-final class FeedImageViewModel {
+final class FeedImageViewModel<Image> {
+    typealias Observer<T> = (T) -> Void
     private var task: FeedImageDataLoaderTask?
     private let model: FeedImage
     private let imageLoader: FeedImageDataLoader
+    private let imageTransformer : (Data) -> Image?
     
-    init(task: FeedImageDataLoaderTask? = nil, model: FeedImage, imageLoader: FeedImageDataLoader) {
+    init(task: FeedImageDataLoaderTask? = nil, model: FeedImage, imageLoader: FeedImageDataLoader,imageTransformer:@escaping(Data) -> Image?) {
         self.task = task
         self.model = model
         self.imageLoader = imageLoader
+        self.imageTransformer = imageTransformer
     }
     var description : String?{
         return model.description
@@ -28,9 +30,9 @@ final class FeedImageViewModel {
     var hasLocation:Bool{
         return location != nil
     }
-    var onImageLoad:((UIImage) -> Void)?
-    var onImageLoadingStateChange:((Bool)->Void)?
-    var onShouldRetryImageLoadStateChange:((Bool)->Void)?
+    var onImageLoad:(Observer<Image>)?
+    var onImageLoadingStateChange:(Observer<Bool>)?
+    var onShouldRetryImageLoadStateChange:(Observer<Bool>)?
     
     func loadImageData() {
         onImageLoadingStateChange?(true)
@@ -41,7 +43,7 @@ final class FeedImageViewModel {
     }
     
     private func handle(_ result : FeedImageDataLoader.Result){
-        if let image = (try? result.get()).flatMap(UIImage.init){
+        if let image = (try? result.get()).flatMap(imageTransformer){
             onImageLoad?(image)
         }else{
             onShouldRetryImageLoadStateChange?(true)
