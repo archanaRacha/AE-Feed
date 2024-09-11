@@ -25,36 +25,39 @@ final class FeedLoaderPresentationAdapter:FeedRefreshViewControllerDelegate {
    
     
     private let feedLoader: FeedLoader
-    private let presenter: FeedPresenter
-    init(feedLoader: FeedLoader, presenter: FeedPresenter) {
+    var presenter: FeedPresenter?
+    init(feedLoader: FeedLoader) {
         self.feedLoader = feedLoader
-        self.presenter = presenter
     }
     func didRequestFeedRefresh() {
-        presenter.didStartLoadingFeed()
+        presenter?.didStartLoadingFeed()
         feedLoader.load { [weak self] result in
             switch result {
             case let .success(feed):
-                self?.presenter.didFinishedLoadingFeed(with: feed)
+                self?.presenter?.didFinishedLoadingFeed(with: feed)
             case let .failure(error):
-                self?.presenter.didFinishedLoadingFeed(with: error)
+                self?.presenter?.didFinishedLoadingFeed(with: error)
             }
         }
     }
 }
 final class FeedPresenter {
    
-    var feedView:FeedView?
-    var loadingView:FeedLoadingView?
+    private var feedView:FeedView
+    private var loadingView:FeedLoadingView
+    init(feedView: FeedView, loadingView: FeedLoadingView) {
+        self.feedView = feedView
+        self.loadingView = loadingView
+    }
     func didStartLoadingFeed(){
-        loadingView?.display(FeedLoadingViewModel(isLoading: true))
+        loadingView.display(FeedLoadingViewModel(isLoading: true))
     }
     func didFinishedLoadingFeed(with feed:[FeedImage]){
-        feedView?.display(FeedViewModel(feed: feed))
-        loadingView?.display(FeedLoadingViewModel(isLoading: false))
+        feedView.display(FeedViewModel(feed: feed))
+        loadingView.display(FeedLoadingViewModel(isLoading: false))
     }
     func didFinishedLoadingFeed(with error:Error){
-        loadingView?.display(FeedLoadingViewModel(isLoading: false))
+        loadingView.display(FeedLoadingViewModel(isLoading: false))
     }
     
 }
