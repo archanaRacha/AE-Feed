@@ -8,46 +8,27 @@
 import UIKit
 import AE_Feed
 
-final class FeedViewModel {
-    typealias Observer<T> = (T) -> Void
-    private var feedLoader: FeedLoader
-    init(feedLoader:FeedLoader){
-        self.feedLoader = feedLoader
-    }
-    var onLoadingStateChange:Observer<Bool>?
-    var onFeedLoad:Observer<[FeedImage]>?
-   
-    func loadFeed() {
-        onLoadingStateChange?(true)
-        feedLoader.load { [weak self] result in
-            if let feed = try? result.get(){
-                self?.onFeedLoad?(feed)
-            }
-            self?.onLoadingStateChange?(false)
-        }
-    }
-}
-final class FeedRefreshViewController : NSObject {
-    
-    private(set) lazy var view: UIRefreshControl = binded(UIRefreshControl())
-    
-    private let viewModel : FeedViewModel
-    
-    init(viewModel:FeedViewModel) {
-        self.viewModel = viewModel
+
+final class FeedRefreshViewController : NSObject,FeedLoadingView {
+    private(set) lazy var view = loadView()
+
+    private let presenter : FeedPresenter
+    init(presenter:FeedPresenter) {
+        self.presenter = presenter
     }
     @objc func refresh() {
-        viewModel.loadFeed()
+        presenter.loadFeed()
         
     }
-    func binded(_ view: UIRefreshControl) -> UIRefreshControl{
-        viewModel.onLoadingStateChange = {[weak view] isLoading in
-            if isLoading{
-                view?.beginRefreshing()
-            }else{
-               view?.endRefreshing()
-            }
+    func display(isLoading: Bool) {
+        if isLoading{
+            view.beginRefreshing()
+        }else{
+            view.endRefreshing()
         }
+    }
+    private func loadView() -> UIRefreshControl{
+        let view = UIRefreshControl()
         view.addTarget(self, action: #selector(refresh), for: .valueChanged)
         return view
     }
