@@ -21,14 +21,16 @@ protocol FeedView{
     func display(_ viewModel:FeedViewModel)
 }
 
-final class FeedLoaderPresentationAdapter {
+final class FeedLoaderPresentationAdapter:FeedRefreshViewControllerDelegate {
+   
+    
     private let feedLoader: FeedLoader
     private let presenter: FeedPresenter
     init(feedLoader: FeedLoader, presenter: FeedPresenter) {
         self.feedLoader = feedLoader
         self.presenter = presenter
     }
-    func loadFeed(){
+    func didRequestFeedRefresh() {
         presenter.didStartLoadingFeed()
         feedLoader.load { [weak self] result in
             switch result {

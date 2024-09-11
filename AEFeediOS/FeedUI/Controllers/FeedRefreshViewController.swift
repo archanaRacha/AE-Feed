@@ -8,16 +8,18 @@
 import UIKit
 import AE_Feed
 
-
+protocol FeedRefreshViewControllerDelegate{
+    func didRequestFeedRefresh()
+}
 final class FeedRefreshViewController : NSObject,FeedLoadingView {
     private(set) lazy var view = loadView()
-
-    private let loadFeed : () -> Void
-    init(loadFeed:@escaping () -> Void) {
-        self.loadFeed = loadFeed
+    private let delegate: FeedRefreshViewControllerDelegate
+    init(delegate:FeedRefreshViewControllerDelegate){
+        self.delegate = delegate
     }
+   
     @objc func refresh() {
-        loadFeed()
+        delegate.didRequestFeedRefresh()
         
     }
     func display(_ viewModel: FeedLoadingViewModel) {
