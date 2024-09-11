@@ -24,14 +24,16 @@ public final class FeedUIComposer {
 }
 
 final class FeedViewAdapter : FeedView{
+   
+    
     private weak var controller :FeedViewController?
     private let imageLoader : FeedImageDataLoader
     init(controller: FeedViewController? = nil, imageLoader: FeedImageDataLoader) {
         self.controller = controller
         self.imageLoader = imageLoader
     }
-    func display(feed: [AE_Feed.FeedImage]) {
-        controller?.tableModel = feed.map { model in
+    func display(_ viewModel: FeedViewModel) {
+        controller?.tableModel = viewModel.feed.map { model in
             FeedImageCellController(viewModel: FeedImageViewModel(model: model, imageLoader: imageLoader,imageTransformer:UIImage.init))
         }
     }
@@ -46,7 +48,7 @@ private final class WeakRefVirtualProxy<T:AnyObject> {
 }
 
 extension WeakRefVirtualProxy:FeedLoadingView where T : FeedLoadingView{
-    func display(isLoading: Bool) {
-        object?.display(isLoading: isLoading)
+    func display(_ viewModel: FeedLoadingViewModel) {
+        object?.display(viewModel)
     }
 }
