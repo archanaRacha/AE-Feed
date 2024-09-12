@@ -21,7 +21,7 @@ protocol FeedView{
     func display(_ viewModel:FeedViewModel)
 }
 
-final class FeedLoaderPresentationAdapter:FeedRefreshViewControllerDelegate {
+final class FeedLoaderPresentationAdapter:FeedViewControllerDelegate {
    
     
     private let feedLoader: FeedLoader

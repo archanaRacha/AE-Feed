@@ -137,15 +137,11 @@ Location</string>
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <connections>
-                            <action selector="refresh" destination="3JY-UJ-bd1" eventType="valueChanged" id="ynI-bP-Rqh"/>
+                            <action selector="refresh" destination="fNQ-22-Rva" eventType="valueChanged" id="kDM-YL-FSG"/>
                         </connections>
                     </refreshControl>
-                    <connections>
-                        <outlet property="refreshController" destination="3JY-UJ-bd1" id="Rjj-Bp-BWG"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zrm-xy-Xfg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="3JY-UJ-bd1" customClass="FeedRefreshViewController" customModule="AEFeediOS" customModuleProvider="target"/>
                 <tapGestureRecognizer id="Bdc-Rn-Bqk"/>
             </objects>
             <point key="canvasLocation" x="1105.7971014492755" y="-11.383928571428571"/>

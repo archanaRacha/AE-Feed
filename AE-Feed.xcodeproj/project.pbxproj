@@ -73,11 +73,9 @@
 		67DD83AF2C7C6DAF00399443 /* FeedViewControllerTests+LoaderSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DD83AE2C7C6DAF00399443 /* FeedViewControllerTests+LoaderSpy.swift */; };
 		67DD83B12C7C6E6D00399443 /* FeedViewControllerTests+Assertions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DD83B02C7C6E6D00399443 /* FeedViewControllerTests+Assertions.swift */; };
 		67DD83B72C7C779000399443 /* FeedImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677CB8D72C75AA8200E7D9CA /* FeedImageCell.swift */; };
-		67DD83B92C7C77B000399443 /* FeedRefreshViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DD83B22C7C70ED00399443 /* FeedRefreshViewController.swift */; };
 		67DD83BA2C7C77CD00399443 /* UIView+Shimmering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67920A672C7A689200F76F50 /* UIView+Shimmering.swift */; };
 		67DD83BB2C7C8A5A00399443 /* FeedImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677CB8D72C75AA8200E7D9CA /* FeedImageCell.swift */; };
 		67DD83BD2C7C8A9000399443 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DA42542C4A2F0D00437481 /* FeedViewController.swift */; };
-		67DD83BE2C7C8A9300399443 /* FeedRefreshViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DD83B22C7C70ED00399443 /* FeedRefreshViewController.swift */; };
 		67DD83BF2C7C8A9700399443 /* FeedImageCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DD83B52C7C763900399443 /* FeedImageCellController.swift */; };
 		67DD83C02C7C8A9A00399443 /* UIView+Shimmering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67920A672C7A689200F76F50 /* UIView+Shimmering.swift */; };
 		67DD83C42C7C8E4000399443 /* FeedUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DD83C22C7C8C4300399443 /* FeedUIComposer.swift */; };
@@ -189,7 +187,6 @@
 		67DD83AC2C7C6D5A00399443 /* FeedImageCell+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedImageCell+TestHelpers.swift"; sourceTree = "<group>"; };
 		67DD83AE2C7C6DAF00399443 /* FeedViewControllerTests+LoaderSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedViewControllerTests+LoaderSpy.swift"; sourceTree = "<group>"; };
 		67DD83B02C7C6E6D00399443 /* FeedViewControllerTests+Assertions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedViewControllerTests+Assertions.swift"; sourceTree = "<group>"; };
-		67DD83B22C7C70ED00399443 /* FeedRefreshViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedRefreshViewController.swift; sourceTree = "<group>"; };
 		67DD83B52C7C763900399443 /* FeedImageCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageCellController.swift; sourceTree = "<group>"; };
 		67DD83C22C7C8C4300399443 /* FeedUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedUIComposer.swift; sourceTree = "<group>"; };
 		67F2BCA62C09BE9900E93AA6 /* CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelpers.swift; sourceTree = "<group>"; };
@@ -449,7 +446,6 @@
 			isa = PBXGroup;
 			children = (
 				67DA42542C4A2F0D00437481 /* FeedViewController.swift */,
-				67DD83B22C7C70ED00399443 /* FeedRefreshViewController.swift */,
 				67DD83B52C7C763900399443 /* FeedImageCellController.swift */,
 			);
 			path = Controllers;
@@ -831,7 +827,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				67DD83B72C7C779000399443 /* FeedImageCell.swift in Sources */,
-				67DD83B92C7C77B000399443 /* FeedRefreshViewController.swift in Sources */,
 				67DD83BA2C7C77CD00399443 /* UIView+Shimmering.swift in Sources */,
 				678B5D852C91EC4500FE57AD /* FeedImageCellController.swift in Sources */,
 				67AB24E42C3E961500A53A3F /* AEFeediOS.docc in Sources */,
@@ -848,7 +843,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				678B5D802C918F0400FE57AD /* FeedPresentation.swift in Sources */,
-				67DD83BE2C7C8A9300399443 /* FeedRefreshViewController.swift in Sources */,
 				67DD83BB2C7C8A5A00399443 /* FeedImageCell.swift in Sources */,
 				67DD83B12C7C6E6D00399443 /* FeedViewControllerTests+Assertions.swift in Sources */,
 				67DD83BF2C7C8A9700399443 /* FeedImageCellController.swift in Sources */,
