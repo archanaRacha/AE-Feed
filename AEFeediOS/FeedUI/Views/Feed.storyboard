@@ -141,15 +141,11 @@ Location</string>
                         </connections>
                     </refreshControl>
                     <connections>
-                        <outlet property="refreshController" destination="3JY-UJ-bd1" id="QJj-sV-EQf"/>
+                        <outlet property="refreshController" destination="3JY-UJ-bd1" id="Rjj-Bp-BWG"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zrm-xy-Xfg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="3JY-UJ-bd1" customClass="FeedRefreshViewController" customModule="AEFeediOS" customModuleProvider="target">
-                    <connections>
-                        <outlet property="view" destination="Eae-F8-3WM" id="cPo-cf-aDt"/>
-                    </connections>
-                </customObject>
+                <customObject id="3JY-UJ-bd1" customClass="FeedRefreshViewController" customModule="AEFeediOS" customModuleProvider="target"/>
                 <tapGestureRecognizer id="Bdc-Rn-Bqk"/>
             </objects>
             <point key="canvasLocation" x="1105.7971014492755" y="-11.383928571428571"/>
