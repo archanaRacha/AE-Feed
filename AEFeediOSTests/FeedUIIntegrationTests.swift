@@ -10,16 +10,23 @@ import UIKit
 import AE_Feed
 import AEFeediOS
 
-final class FeedViewControllerTests: XCTestCase {
+final class FeedUIIntegrationTests: XCTestCase {
 
     func  test_feedView_hasTitle(){
         let (sut,_) = makeSUT()
         sut.loadViewIfNeeded()
+        
+       
+        XCTAssertEqual(sut.title, localized("FEED_VIEW_TITLE"))
+    }
+    private func localized(_ key: String, file:StaticString = #file, line : UInt = #line) -> String {
+        let table = "Feed"
         let bundle = Bundle(for:FeedViewController.self)
-        let localizedKey = "FEED_VIEW_TITLE"
-        let localizedTitle = bundle.localizedString(forKey:localizedKey,value :nil,table:"Feed")
-        XCTAssertNotEqual(localizedKey, localizedTitle,"Missing localized string for key:\(localizedKey)")
-        XCTAssertEqual(sut.title, localizedTitle)
+        let value = bundle.localizedString(forKey:key,value :nil,table:"Feed")
+        if key == value {
+            XCTFail("Missing localized string for key:\(key) in table \(table)", file: file,line:line)
+        }
+        return value
     }
     func test_loadFeedActions_requestFeedFromLoader() {
         let (sut,loader) = makeSUT()
