@@ -27,6 +27,7 @@ final class FeedViewController : UITableViewController,UITableViewDataSourcePref
         
     }
     func display(_ viewModel: FeedLoadingViewModel) {
+
         if viewModel.isLoading{
             refreshControl?.beginRefreshing()
         }else{
