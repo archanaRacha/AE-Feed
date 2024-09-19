@@ -44,7 +44,7 @@ final class FeedPresenter {
         return NSLocalizedString("FEED_VIEW_CONNECTION_ERROR",tableName: "Feed",bundle: Bundle(for: FeedPresenter.self), comment: "Error message displayed when we can't load the image feed from the server.")
     }
     func didStartLoadingFeed(){
-        errorView.display(FeedErrorViewModel(message: nil))
+        errorView.display(.noError)
         loadingView.display(FeedLoadingViewModel(isLoading: true))
     }
     func didFinishedLoadingFeed(with feed:[FeedImage]){
@@ -53,7 +53,7 @@ final class FeedPresenter {
         loadingView.display(FeedLoadingViewModel(isLoading: false))
     }
     func didFinishedLoadingFeed(with error:Error){
-        errorView.display(FeedErrorViewModel(message: feedLoadError))
+        errorView.display(.error(message: feedLoadError))
         loadingView.display(FeedLoadingViewModel(isLoading: false))
     }
     
