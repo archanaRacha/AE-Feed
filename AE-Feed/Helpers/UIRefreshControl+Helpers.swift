@@ -5,4 +5,10 @@
 //  Created by archana racha on 19/09/24.
 //
 
-import Foundation
+import UIKit
+
+extension UIRefreshControl{
+    func update(isRefreshing:Bool){
+        isRefreshing ? beginRefreshing() : endRefreshing()
+    }
+}
