@@ -18,7 +18,24 @@
                         <view key="tableHeaderView" contentMode="scaleToFill" id="JAf-xF-zJc" customClass="ErrorView" customModule="AEFeediOS" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="393" height="34"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="0.98039215690000003" green="0.52941176469999995" blue="0.4584690126" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0aH-qk-wyc">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="34"/>
+                                    <color key="backgroundColor" red="0.98039215690000003" green="0.52941176469999995" blue="0.4584690126" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="0aH-qk-wyc" secondAttribute="trailing" id="VX2-TL-t7v"/>
+                                <constraint firstItem="0aH-qk-wyc" firstAttribute="top" secondItem="JAf-xF-zJc" secondAttribute="top" id="cT1-h3-UEN"/>
+                                <constraint firstAttribute="bottom" secondItem="0aH-qk-wyc" secondAttribute="bottom" id="lnR-mW-Eao"/>
+                                <constraint firstItem="0aH-qk-wyc" firstAttribute="leading" secondItem="JAf-xF-zJc" secondAttribute="leading" id="zWV-xi-V8Z"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="label" destination="0aH-qk-wyc" id="eTN-Kv-Rxv"/>
+                            </connections>
                         </view>
                         <view key="tableFooterView" contentMode="scaleToFill" id="ydi-yb-0Dh">
                             <rect key="frame" x="0.0" y="692" width="393" height="16"/>
