@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fNQ-22-Rva">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,13 +15,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="JAf-xF-zJc" customClass="ErrorView" customModule="AEFeediOS" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="34"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="0.98039215690000003" green="0.52941176469999995" blue="0.4584690126" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </view>
                         <view key="tableFooterView" contentMode="scaleToFill" id="ydi-yb-0Dh">
-                            <rect key="frame" x="0.0" y="658" width="393" height="16"/>
+                            <rect key="frame" x="0.0" y="692" width="393" height="16"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FeedImageCell" rowHeight="580" id="vMo-1P-wxJ" customClass="FeedImageCell" customModule="AEFeediOS" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="50" width="393" height="580"/>
+                                <rect key="frame" x="0.0" y="84" width="393" height="580"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vMo-1P-wxJ" id="gcX-Zu-UIm">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="580"/>
@@ -140,6 +145,9 @@ Location</string>
                             <action selector="refresh" destination="fNQ-22-Rva" eventType="valueChanged" id="kDM-YL-FSG"/>
                         </connections>
                     </refreshControl>
+                    <connections>
+                        <outlet property="errorView" destination="JAf-xF-zJc" id="cGK-Wf-Rra"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zrm-xy-Xfg" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="Bdc-Rn-Bqk"/>
