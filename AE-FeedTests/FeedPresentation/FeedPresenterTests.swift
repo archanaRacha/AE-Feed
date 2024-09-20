@@ -23,6 +23,7 @@ class FeedPresenterTests: XCTestCase {
         let view = ViewSpy()
         let sut = FeedPresenter(view: view)
         trackMemoryLeaks(view,file:file,line:line)
+        trackMemoryLeaks(sut,file:file,line:line)
         return (sut,view)
     }
     private class ViewSpy {
