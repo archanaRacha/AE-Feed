@@ -8,7 +8,6 @@
 import XCTest
 import UIKit
 import AE_Feed
-import AEFeediOS
 
 final class FeedUIIntegrationTests: XCTestCase {
 
@@ -21,7 +20,7 @@ final class FeedUIIntegrationTests: XCTestCase {
     }
     private func localized(_ key: String, file:StaticString = #file, line : UInt = #line) -> String {
         let table = "Feed"
-        let bundle = Bundle(for:FeedViewController.self)
+        let bundle = Bundle(for:FeedPresenter.self)
         let value = bundle.localizedString(forKey:key,value :nil,table:"Feed")
         if key == value {
             XCTFail("Missing localized string for key:\(key) in table \(table)", file: file,line:line)
