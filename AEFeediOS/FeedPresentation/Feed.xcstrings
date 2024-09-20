@@ -15,6 +15,12 @@
             "state" : "translated",
             "value" : "Couldn't connect to server"
           }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Não foi possível conectar ao servidor"
+          }
         }
       }
     },
