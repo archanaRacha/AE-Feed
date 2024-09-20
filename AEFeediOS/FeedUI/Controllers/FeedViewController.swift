@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AE_Feed
 
 protocol FeedViewControllerDelegate{
     func didRequestFeedRefresh()

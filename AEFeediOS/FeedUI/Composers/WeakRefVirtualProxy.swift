@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import AE_Feed
 
 final class WeakRefVirtualProxy<T:AnyObject> {
     private weak var object: T?
