@@ -6,8 +6,6 @@
 //
 
 import Foundation
-import AE_Feed
-
 
 public protocol FeedImageView{
     associatedtype Image
@@ -16,7 +14,7 @@ public protocol FeedImageView{
 public final class FeedImagePresenter<View:FeedImageView,Image> where View.Image == Image {
     private let view: View
     private let imageTransformer:(Data) -> Image?
-    internal init(view: View, imageTransformer: @escaping (Data) -> Image?) {
+    public init(view: View, imageTransformer: @escaping (Data) -> Image?) {
         self.view = view
         self.imageTransformer = imageTransformer
     }
