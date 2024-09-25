@@ -8,6 +8,7 @@
 import XCTest
 import UIKit
 import AE_Feed
+import AEFeediOS
 
 final class FeedUIIntegrationTests: XCTestCase {
 
@@ -92,7 +93,7 @@ final class FeedUIIntegrationTests: XCTestCase {
         sut.loadViewIfNeeded()
         XCTAssertEqual(sut.errorMessage, nil)
         loader.completeFeedLoadingWithError(at: 0)
-        XCTAssertEqual(sut.errorMessage, localized("FEED_IEW_CONNECTION_ERROR"))
+        XCTAssertEqual(sut.errorMessage, localized("FEED_VIEW_CONNECTION_ERROR"))
         sut.simulateUserInitiatedFeedReload()
         XCTAssertEqual(sut.errorMessage, nil)
     }

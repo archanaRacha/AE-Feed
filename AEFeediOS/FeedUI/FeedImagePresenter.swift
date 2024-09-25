@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AE_Feed
 
 
 public protocol FeedImageView{

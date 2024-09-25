@@ -17,7 +17,7 @@ public protocol FeedView{
     func display(_ viewModel:FeedViewModel)
 }
 
-final class FeedPresenter{
+public final class FeedPresenter{
     private let feedView:FeedView
     private let loadingView:FeedLoadingView
     private let errorView:FeedErrorView
@@ -29,7 +29,7 @@ final class FeedPresenter{
         self.errorView = errorView
         self.loadingView = loadingView
     }
-    static var title : String{
+    public static var title : String{
         return NSLocalizedString("FEED_VIEW_TITLE",
                                  tableName: "Feed",
                                  bundle: Bundle(for: FeedPresenter.self)

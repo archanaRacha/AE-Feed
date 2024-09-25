@@ -8,7 +8,7 @@
 import Foundation
 import AE_Feed
 
-final class FeedImageDataLoaderPresentationAdapter<View : FeedImageView,Image>: FeedImageCellControllerDelegate where View.Image == Image {
+public final class FeedImageDataLoaderPresentationAdapter<View : FeedImageView,Image>: FeedImageCellControllerDelegate where View.Image == Image {
     private let model: FeedImage
     private let imageLoader : FeedImageDataLoader
     private var task: FeedImageDataLoaderTask?
