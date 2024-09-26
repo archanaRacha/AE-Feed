@@ -8,6 +8,7 @@ on:
 
 jobs:
   build-and-test:
+  
     runs-on: macos-latest
 
     steps:
@@ -21,7 +22,6 @@ jobs:
       run: sudo xcode-select -switch /Applications/Xcode.app
       
     - name: Build and tests
-
-     run: xcodebuild clean build test -project AE-Feed.xcodeproj -scheme "CI_macOS" CODE_SIGN_IDENTITY=""  CODE_SIGNING_REQUIRED=NO
+      run: xcodebuild clean build test -project AE-Feed.xcodeproj -scheme "CI_macOS" CODE_SIGN_IDENTITY=""  CODE_SIGNING_REQUIRED=NO
     # run: xcodebuild clean build test -project AE-Feed.xcodeproj -scheme "CI_iOS" CODE_SIGN_IDENTITY=""  CODE_SIGNING_REQUIRED=NO
       # run: xcodebuild clean build test -project AE-Feed.xcodeproj -scheme "CI_AEFeediOS" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 15 Pro,OS=17.5" ONLY_ACTIVE_ARCH=YES SWIFT_TREAT_WARNINGS_AS_ERRORS=YES OTHER_SWIFT_FLAGS="-D ED_SKIP_SWIFT_FORMAT"
