@@ -6,22 +6,6 @@
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES"
       buildArchitectures = "Automatic">
-      <BuildActionEntries>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "67AB24DF2C3E961500A53A3F"
-               BuildableName = "AEFeediOS.framework"
-               BlueprintName = "AEFeediOS"
-               ReferencedContainer = "container:AE-Feed.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-      </BuildActionEntries>
    </BuildAction>
    <TestAction
       buildConfiguration = "Debug"
@@ -30,13 +14,14 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:AEFeediOS/AEFeediOS.xctestplan"
+            reference = "container:CI_AEFeediOS.xctestplan"
             default = "YES">
          </TestPlanReference>
       </TestPlans>
       <Testables>
          <TestableReference
-            skipped = "NO">
+            skipped = "NO"
+            parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "67AB24E82C3E961600A53A3F"
@@ -64,15 +49,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "67AB24DF2C3E961500A53A3F"
-            BuildableName = "AEFeediOS.framework"
-            BlueprintName = "AEFeediOS"
-            ReferencedContainer = "container:AE-Feed.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

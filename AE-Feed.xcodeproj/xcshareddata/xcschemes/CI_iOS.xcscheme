@@ -63,7 +63,7 @@
             reference = "container:AE_FeedCacheIntegrationTests/AE_FeedCacheIntegrationTests.xctestplan">
          </TestPlanReference>
          <TestPlanReference
-            reference = "container:AEFeediOS.xctestplan">
+            reference = "container:AEFeediOS/AEFeediOS.xctestplan">
          </TestPlanReference>
       </TestPlans>
    </TestAction>
