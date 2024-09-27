@@ -14,6 +14,7 @@ class RemoteFeedImageDataLoader{
     }
     public enum Error: Swift.Error {
         case invalidData
+        
     }
     func loadImageData(from url: URL, completion:@escaping (FeedImageDataLoader.Result)-> Void){
         client.get(from: url) { result in
@@ -56,8 +57,7 @@ final class RemoteFeedImageDataLoaderTests: XCTestCase {
     func test_loadImageDataFromURL_deliversInvalidDataErrorOnNon200HTTPResponse() {
             let (sut, client) = makeSUT()
 
-            let samples = [199,
-                           201, 300, 400, 500]
+            let samples = [199,201, 300, 400, 500]
 
             samples.enumerated().forEach { index, code in
                 expect(sut, toCompleteWith: failure(.invalidData), when: {
