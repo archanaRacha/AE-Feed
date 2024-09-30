@@ -73,8 +73,8 @@
             filePath = "AE-FeedTests/FeedAPI/LoadFeedFromRemoteUseCaseTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
             landmarkName = "get(from:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -89,8 +89,8 @@
             filePath = "AE-Feed/FeedAPI/URLSessionHTTPClient.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
             landmarkName = "get(from:completion:)"
             landmarkType = "7">
          </BreakpointContent>
