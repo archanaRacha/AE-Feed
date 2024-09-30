@@ -69,7 +69,10 @@ class URLSessionHTTPClientTests: XCTestCase {
     }
     //MARK: Helpers
     private func makeSUT(file:StaticString = #file,line :UInt = #line) ->HTTPClient{
-        let sut = URLSessionHTTPClient()
+        let configuration = URLSessionConfiguration.ephemeral
+        configuration.protocolClasses = [URLProtocolStub.self]
+        let session = URLSession(configuration: configuration)
+        let sut = URLSessionHTTPClient(session: session)
         trackMemoryLeaks(sut,file:file,line:line)
         return sut
     }
@@ -127,23 +130,23 @@ class URLSessionHTTPClientTests: XCTestCase {
             let data: Data?
             let response:URLResponse?
             let error : Error?
+            let requestObserver: ((URLRequest) -> Void)?
         }
-        private static var stub : Stub?
-        private static var requestObserver : ((URLRequest)->Void)?
+        private static var _stub: Stub?
+        private static var stub: Stub? {
+            get { return queue.sync { _stub } }
+            set { queue.sync { _stub = newValue } }
+        }
+        private static let queue = DispatchQueue(label: "URLProtocolStub.queue")
         
         static func stub(data: Data?, response:URLResponse?,error:Error?){
-            stub = Stub(data: data, response: response, error: error)
+            stub = Stub(data: data, response: response, error: error, requestObserver: nil)
         }
         static func observeRequests(observer:@escaping(URLRequest)->Void){
-            requestObserver = observer
+            stub = Stub(data: nil , response: nil, error: nil, requestObserver: observer)
         }
-        static func startInterceptingRequests(){
-            URLProtocol.registerClass(URLProtocolStub.self)
-        }
-        static func stopInterceptingRequests(){
-            URLProtocol.unregisterClass(URLProtocolStub.self)
+        static func removeStub() {
             stub = nil
-            requestObserver = nil
         }
         override class func canInit(with request: URLRequest) -> Bool {
             return true
@@ -152,10 +155,7 @@ class URLSessionHTTPClientTests: XCTestCase {
             return request
         }
         override func startLoading()  {
-            if let requestObserver = URLProtocolStub.requestObserver{
-                client?.urlProtocolDidFinishLoading(self)
-                return  requestObserver(request)
-            }
+            
            
             guard let stub = URLProtocolStub.stub else {return}
             if let data = stub.data {
@@ -166,21 +166,18 @@ class URLSessionHTTPClientTests: XCTestCase {
             }
             if let error = stub.error{
                 client?.urlProtocol(self, didFailWithError: error)
+            }else{
+                client?.urlProtocolDidFinishLoading(self)
             }
-            client?.urlProtocolDidFinishLoading(self)
+            stub.requestObserver?(request)
         }
         override func stopLoading() {}
     }
     
-    
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        URLProtocolStub.startInterceptingRequests()
-    }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
-        URLProtocolStub.stopInterceptingRequests()
+        URLProtocolStub.removeStub()
     }
 
     func testExample() throws {
