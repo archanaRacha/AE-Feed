@@ -38,7 +38,7 @@ class RemoteFeedImageDataLoader{
     @discardableResult
     func loadImageData(from url: URL, completion: @escaping (FeedImageDataLoader.Result) -> Void) -> FeedImageDataLoaderTask {
           
-        var task = HTTPClientTaskWrapper(completion)
+        let task = HTTPClientTaskWrapper(completion)
         task.wrapped = client.get(from: url, completion: { [weak self] result in
             
             guard self != nil else { return }
@@ -152,9 +152,6 @@ final class RemoteFeedImageDataLoaderTests: XCTestCase {
         trackMemoryLeaks(sut, file: file, line: line)
         trackMemoryLeaks(client, file: file, line: line)
         return (sut, client)
-    }
-    private func anyData() -> Data {
-        return Data("any data".utf8)
     }
 
     private func failure(_ error: RemoteFeedImageDataLoader.Error) -> FeedImageDataLoader.Result {
