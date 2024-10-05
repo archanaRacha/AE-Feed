@@ -34,7 +34,7 @@ class URLSessionHTTPClientTests: XCTestCase {
     func test_cancelGetFromURLTask_cancelsURLRequest() {
         var task: HTTPClientTask?
         URLProtocolStub.onStartLoading { task?.cancel() }
-        let receivedError = resultErrorFor(taskHandler: { task = $0 }) as NSError?
+        _ = resultErrorFor(taskHandler: { task = $0 }) as NSError?
     }
     func test_getFromURL_failsOnAllInvalidRepresentationCases() {
         
