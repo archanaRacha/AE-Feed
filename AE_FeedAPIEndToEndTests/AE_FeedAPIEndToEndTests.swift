@@ -44,10 +44,8 @@ final class AE_FeedAPIEndToEndTests: XCTestCase {
         }
     //MARK: Helper functions
     private func getFeedResult(file:StaticString = #file,line :UInt = #line) -> Swift.Result<[FeedImage], Error>?{
-        let client = URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
         
-        let loader = RemoteFeedLoader(client: client, url: feedTestServerURL)
-        trackMemoryLeaks(client,file: file,line: line)
+        let loader = RemoteFeedLoader(client: ephemeralClient(), url: feedTestServerURL)
         trackMemoryLeaks(loader,file: file,line: line)
         let exp = expectation(description: "wait for load completion")
         var receivedResult : Swift.Result<[FeedImage], Error>?
@@ -59,15 +57,13 @@ final class AE_FeedAPIEndToEndTests: XCTestCase {
         return receivedResult
     }
     private func getFeedImageDataResult(file: StaticString = #file, line: UInt = #line) -> FeedImageDataLoader.Result? {
-        let url = feedTestServerURL.appending(component: "73A7F70C-75DA-4C2E-B5A3-EED40DC53AA6/image")
         
-        let client = URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
-        let loader = RemoteFeedImageDataLoader(client: client)
-        trackMemoryLeaks(client, file: file, line: line)
+        
+        let loader = RemoteFeedImageDataLoader(client: ephemeralClient())
         trackMemoryLeaks(loader, file: file, line: line)
 
         let exp = expectation(description: "Wait for load completion")
-
+        let url = feedTestServerURL.appending(component: "73A7F70C-75DA-4C2E-B5A3-EED40DC53AA6/image")
         var receivedResult: FeedImageDataLoader.Result?
         _ = loader.loadImageData(from: url) { result in
             receivedResult = result
@@ -76,6 +72,11 @@ final class AE_FeedAPIEndToEndTests: XCTestCase {
         wait(for: [exp], timeout: 10.0)
 
         return receivedResult
+    }
+    private func ephemeralClient(file: StaticString = #file, line: UInt = #line) -> HTTPClient {
+        let client = URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
+        trackMemoryLeaks(client, file: file, line: line)
+        return client
     }
     private var feedTestServerURL: URL {
             return URL(string: "https://essentialdeveloper.com/feed-case-study/test-api/feed")!
