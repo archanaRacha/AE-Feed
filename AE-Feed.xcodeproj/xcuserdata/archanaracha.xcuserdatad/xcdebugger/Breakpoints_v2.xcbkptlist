@@ -41,10 +41,40 @@
             filePath = "AE_FeedAPIEndToEndTests/AE_FeedAPIEndToEndTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
             landmarkName = "getFeedResult(file:line:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6CE94CE8-8AA2-4C67-8AB6-677F0B78FFF1 - f4aae527467c800e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AE_FeedAPIEndToEndTests.AE_FeedAPIEndToEndTests.getFeedResult(file: Swift.StaticString, line: Swift.UInt) -&gt; Swift.Optional&lt;Swift.Result&lt;Swift.Array&lt;AE_Feed.FeedImage&gt;, Swift.Error&gt;&gt;"
+                  moduleName = "AE_FeedAPIEndToEndTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/archanaracha/Desktop/EssenstialDeveloper/Untitled/AE_FeedAPIEndToEndTests/AE_FeedAPIEndToEndTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54">
+               </Location>
+               <Location
+                  uuid = "6CE94CE8-8AA2-4C67-8AB6-677F0B78FFF1 - 54ba67f27158c572"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;AE_Feed.FeedImage&gt;, Swift.Error&gt;) -&gt; () in AE_FeedAPIEndToEndTests.AE_FeedAPIEndToEndTests.getFeedResult(file: Swift.StaticString, line: Swift.UInt) -&gt; Swift.Optional&lt;Swift.Result&lt;Swift.Array&lt;AE_Feed.FeedImage&gt;, Swift.Error&gt;&gt;"
+                  moduleName = "AE_FeedAPIEndToEndTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/archanaracha/Desktop/EssenstialDeveloper/Untitled/AE_FeedAPIEndToEndTests/AE_FeedAPIEndToEndTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -57,8 +87,8 @@
             filePath = "AE_FeedAPIEndToEndTests/AE_FeedAPIEndToEndTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
             landmarkName = "getFeedResult(file:line:)"
             landmarkType = "7">
          </BreakpointContent>
