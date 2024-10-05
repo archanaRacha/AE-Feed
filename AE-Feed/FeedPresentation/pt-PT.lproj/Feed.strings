@@ -1,0 +1,13 @@
+/* 
+  Feed.strings
+  AE-Feed
+
+  Created by archana racha on 20/09/24.
+  
+*/
+
+"FEED_VIEW_TITLE" = "Meu feed";
+
+"FEED_VIEW_CONNECTION_ERROR" = "Não foi possível conectar ao servidor";
+
+

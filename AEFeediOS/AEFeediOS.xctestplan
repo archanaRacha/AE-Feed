@@ -1,0 +1,60 @@
+{
+  "configurations" : [
+    {
+      "id" : "EF41A228-D4DC-4BBA-84A6-5D73CBEEFC15",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "areLocalizationScreenshotsEnabled" : true,
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:AE-Feed.xcodeproj",
+          "identifier" : "67AB24DF2C3E961500A53A3F",
+          "name" : "AEFeediOS"
+        }
+      ]
+    },
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:AE-Feed.xcodeproj",
+      "identifier" : "67AB24E82C3E961600A53A3F",
+      "name" : "AEFeediOSTests"
+    },
+    "testExecutionOrdering" : "random"
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "selectedTests" : [
+        "FeedUIIntegrationTests\/test_feedImageViewLoadingIndicator_isVisibleWhileLoadingImage()",
+        "FeedUIIntegrationTests\/test_feedImageViewRetryAction_retriesImageLoad()",
+        "FeedUIIntegrationTests\/test_feedImageViewRetryButton_isVisibleOnImageURLLoadError()",
+        "FeedUIIntegrationTests\/test_feedImageViewRetryButton_isVisibleOnInvalidImageData()",
+        "FeedUIIntegrationTests\/test_feedImageView_cancelsImageLoadingWhenNotVisibleAnymore()",
+        "FeedUIIntegrationTests\/test_feedImageView_cancelsImageURLPreloadingWhenNotNearVisibleAnymore()",
+        "FeedUIIntegrationTests\/test_feedImageView_doesNotRenderLoadedImageWhenNotVisibleAnymore()",
+        "FeedUIIntegrationTests\/test_feedImageView_loadsImageURL_whenVisible()",
+        "FeedUIIntegrationTests\/test_feedImageView_preloadsImageURLWhenNearVisible()",
+        "FeedUIIntegrationTests\/test_feedImageView_rendersImageLoadedFromURL()",
+        "FeedUIIntegrationTests\/test_feedView_hasTitle()",
+        "FeedUIIntegrationTests\/test_loadFeedActions_requestFeedFromLoader()",
+        "FeedUIIntegrationTests\/test_loadFeedCompletion_dispatchesFromBackgroundToMainThread()",
+        "FeedUIIntegrationTests\/test_loadFeedCompletion_doesNotAlterCurrentRenderingStateOnError()",
+        "FeedUIIntegrationTests\/test_loadFeedCompletion_rendersErrorMessageOnErrorUntilNextReload()",
+        "FeedUIIntegrationTests\/test_loadFeedCompletion_rendersSuccessfullyLoadedFeed()",
+        "FeedUIIntegrationTests\/test_loadImageDataCompletion_dispatchesFromBackgroundToMainThread()",
+        "FeedUIIntegrationTests\/test_loadingFeedIndicator_isVisisbleWhileLoadingFeed()"
+      ],
+      "target" : {
+        "containerPath" : "container:AE-Feed.xcodeproj",
+        "identifier" : "67AB24E82C3E961600A53A3F",
+        "name" : "AEFeediOSTests"
+      }
+    }
+  ],
+  "version" : 1
+}

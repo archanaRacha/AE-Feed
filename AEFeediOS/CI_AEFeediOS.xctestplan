@@ -1,0 +1,44 @@
+{
+  "configurations" : [
+    {
+      "id" : "EDE3725F-FC67-4F2C-A861-09795A972E12",
+      "name" : "Test Scheme Action",
+      "options" : {
+        "targetForVariableExpansion" : {
+          "containerPath" : "container:AE-Feed.xcodeproj",
+          "identifier" : "67AB24E82C3E961600A53A3F",
+          "name" : "AEFeediOSTests"
+        }
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "areLocalizationScreenshotsEnabled" : true,
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:AE-Feed.xcodeproj",
+          "identifier" : "67AB24DF2C3E961500A53A3F",
+          "name" : "AEFeediOS"
+        }
+      ]
+    },
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:AE-Feed.xcodeproj",
+      "identifier" : "67AB24E82C3E961600A53A3F",
+      "name" : "AEFeediOSTests"
+    },
+    "testExecutionOrdering" : "random"
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:AE-Feed.xcodeproj",
+        "identifier" : "67AB24E82C3E961600A53A3F",
+        "name" : "AEFeediOSTests"
+      }
+    }
+  ],
+  "version" : 1
+}
