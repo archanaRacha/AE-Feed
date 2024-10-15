@@ -41,7 +41,16 @@ final class AE_FeedCacheIntegrationTests: XCTestCase {
 
         expect(feedLoaderToPerformSave, toLoad: feed)
     }
+    func test_validateFeedCache_deletesFeedSavedInADistantPast() {
+        let feedLoaderToPerformSave = makeFeedLoader(currentDate: .distantPast)
+        let feedLoaderToPerformValidation = makeFeedLoader(currentDate: Date())
+        let feed = uniqueImageFeed().models
 
+        save(feed, with: feedLoaderToPerformSave)
+        validateCache(with: feedLoaderToPerformValidation)
+
+        expect(feedLoaderToPerformSave, toLoad: [])
+    }
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         setupEmptyStoreState()
@@ -106,11 +115,11 @@ final class AE_FeedCacheIntegrationTests: XCTestCase {
         expect(imageLoaderToPerformLoad, toLoad: lastImageData, for: image.url)
     }
     // MARK: Helpers
-    private func makeFeedLoader(file: StaticString = #file, line: UInt = #line) -> LocalFeedLoader {
+    private func makeFeedLoader(currentDate: Date = Date(),file: StaticString = #file, line: UInt = #line) -> LocalFeedLoader {
 
             let storeURL = testSpecificStoreURL()
             let store = try! CoreDataFeedStore(storeURL: storeURL)
-            let sut = LocalFeedLoader(store: store, currentDate: Date.init)
+        let sut = LocalFeedLoader(store: store, currentDate: { currentDate })
             trackMemoryLeaks(store, file: file, line: line)
             trackMemoryLeaks(sut, file: file, line: line)
             return sut
