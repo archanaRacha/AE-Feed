@@ -71,7 +71,7 @@ extension LocalFeedLoader{
                 self.store.deleteCachedFeed (  completion : completion )
                 break
             case let .success(.some(cache)) where !FeedCachePolicy.validate(cache.timestamp, against: self.currentDate()):
-                self.store.deleteCachedFeed { _ in completion(.success(())) }
+                self.store.deleteCachedFeed (  completion : completion )
                 break
             case .success:
                 completion(.success(()))
