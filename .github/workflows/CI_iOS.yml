@@ -1,0 +1,27 @@
+name: CI_iOS
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+  
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v3
+#    - name: Use Node.js 20.x
+#      uses: actions/setup-node@v3
+#      with:
+#        node-version: 20.x
+          
+    - name: Select Xcode
+      run: sudo xcode-select -switch /Applications/Xcode.app
+      
+    - name: Build and tests
+      # run: xcodebuild clean build test -project AE-Feed.xcodeproj -scheme "CI" CODE_SIGN_IDENTITY=""  CODE_SIGNING_REQUIRED=NO
+      run: xcodebuild clean build test -project AE-Feed.xcodeproj -scheme "CI_iOS" CODE_SIGN_IDENTITY=""  CODE_SIGNING_REQUIRED=NO
+    #  run: xcodebuild clean build test -project AE-Feed.xcodeproj -scheme "CI_AEFeediOS" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 15 Pro,OS=17.5" ONLY_ACTIVE_ARCH=YES SWIFT_TREAT_WARNINGS_AS_ERRORS=YES OTHER_SWIFT_FLAGS="-D ED_SKIP_SWIFT_FORMAT"
