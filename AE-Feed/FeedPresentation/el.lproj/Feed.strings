@@ -1,0 +1,12 @@
+/* 
+  Feed.strings
+  AE-Feed
+
+  Created by archana racha on 20/09/24.
+  
+*/
+
+"FEED_VIEW_TITLE" = "Η ροή μου";
+"FEED_VIEW_CONNECTION_ERROR" = "Δεν ήταν δυνατή η σύνδεση με τον διακομιστή";
+
+

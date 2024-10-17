@@ -1,0 +1,33 @@
+{
+  "configurations" : [
+    {
+      "id" : "4FBC548C-C9CD-48E0-BA6E-BBE5195D485A",
+      "name" : "Test Scheme Action",
+      "options" : {
+        "targetForVariableExpansion" : {
+          "containerPath" : "container:AE-Feed.xcodeproj",
+          "identifier" : "675583F42B767D120017B658",
+          "name" : "AE-Feed"
+        }
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:AE-Feed.xcodeproj",
+      "identifier" : "675583F42B767D120017B658",
+      "name" : "AE-Feed"
+    },
+    "testExecutionOrdering" : "random"
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:AE-Feed.xcodeproj",
+        "identifier" : "67AE78B62C0ED57400AA0D2C",
+        "name" : "AE_FeedCacheIntegrationTests"
+      }
+    }
+  ],
+  "version" : 1
+}
