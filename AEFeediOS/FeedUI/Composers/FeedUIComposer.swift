@@ -12,7 +12,7 @@ import AE_Feed
 public final class FeedUIComposer {
     private init() {}
 
-    internal static func feedComposedWith(feedLoader: FeedLoader, imageLoader: FeedImageDataLoader) -> FeedViewController {
+    static func feedComposedWith(feedLoader: FeedLoader, imageLoader: FeedImageDataLoader) -> FeedViewController {
        
         let presentationAdapter = FeedLoaderPresentationAdapter.init(feedLoader:  MainQueueDispatchDecorator(decoratee: feedLoader))
         let feedController = makeFeedViewController(delegate: presentationAdapter, title: FeedPresenter.title)
