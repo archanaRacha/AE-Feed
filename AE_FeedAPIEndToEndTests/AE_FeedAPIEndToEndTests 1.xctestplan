@@ -18,6 +18,7 @@
   },
   "testTargets" : [
     {
+      "parallelizable" : true,
       "target" : {
         "containerPath" : "container:AE-Feed.xcodeproj",
         "identifier" : "676BCDFD2B9DC18D007136BB",
