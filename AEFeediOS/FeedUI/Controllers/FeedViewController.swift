@@ -28,10 +28,13 @@ public final class FeedViewController : UITableViewController,UITableViewDataSou
         delegate?.didRequestFeedRefresh()
         
     }
+    public func display(_ cellControllers: [FeedImageCellController]){
+        let _ = cellControllers.enumerated().map { index, _ in
+            cellController(forRowAt:IndexPath(row: index, section: 0))
+        }
+    }
     public func display(_ viewModel: FeedLoadingViewModel) {
-
         refreshControl?.update(isRefreshing: viewModel.isLoading)
-        
     }
     public func display(_ viewModel:FeedErrorViewModel){
         errorView?.message = viewModel.message
