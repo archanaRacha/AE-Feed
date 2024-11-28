@@ -29,8 +29,9 @@ public final class FeedViewController : UITableViewController,UITableViewDataSou
         
     }
     public func display(_ cellControllers: [FeedImageCellController]){
-        let _ = cellControllers.enumerated().map { index, _ in
-            cellController(forRowAt:IndexPath(row: index, section: 0))
+        let _ = cellControllers.enumerated().map { index, new_cellController in
+            tableModel.append(new_cellController)
+          let  _ = cellController(forRowAt:IndexPath(row: index, section: 0))
         }
     }
     public func display(_ viewModel: FeedLoadingViewModel) {
