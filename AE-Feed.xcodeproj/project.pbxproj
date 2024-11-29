@@ -529,8 +529,8 @@
 			isa = PBXGroup;
 			children = (
 				67DA42502C41288D00437481 /* FeedUIIntegrationTests.swift */,
-				67DD83A02C7C62A200399443 /* Helpers */,
 				677C34F12CF6DD1D00633B28 /* FeedSnapshotTests.swift */,
+				67DD83A02C7C62A200399443 /* Helpers */,
 			);
 			path = AEFeediOSTests;
 			sourceTree = "<group>";
