@@ -6,16 +6,17 @@
 //
 
 import Foundation
+import AE_Feed
 
 internal final class FeedImageMapper{
 
     private struct Root : Decodable{
-        let items :[Item]
+        let items :[RemoteFeedItem]
         var feed :[FeedImage] {
             return items.map { $0.item }
         }
     }
-    private struct Item: Decodable{
+    private struct RemoteFeedItem: Decodable{
         let  id : UUID
         let description : String?
         let location:String?

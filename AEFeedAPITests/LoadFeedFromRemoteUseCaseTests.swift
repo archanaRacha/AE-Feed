@@ -7,6 +7,7 @@
 
 import XCTest
 import AE_Feed
+import AEFeedAPI
 final class LoadFeedFromRemoteUseCaseTests: XCTestCase {
 
     func test_init_doesNotRequestDataFromURL(){

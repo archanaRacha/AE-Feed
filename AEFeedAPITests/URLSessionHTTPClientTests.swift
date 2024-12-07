@@ -7,6 +7,7 @@
 
 import XCTest
 import AE_Feed
+import AEFeedAPI
 
 
 class URLSessionHTTPClientTests: XCTestCase {

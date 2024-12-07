@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AE_Feed
 
 public final class RemoteFeedImageDataLoader : FeedImageDataLoader{
     private let client: HTTPClient

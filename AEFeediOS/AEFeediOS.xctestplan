@@ -30,6 +30,10 @@
     {
       "parallelizable" : true,
       "selectedTests" : [
+        "FeedSnapshotTests\/test_emptyFeed()",
+        "FeedSnapshotTests\/test_feedWithContent()",
+        "FeedSnapshotTests\/test_feedWithErrorMessage()",
+        "FeedSnapshotTests\/test_feedWithFailedImageLoading()",
         "FeedUIIntegrationTests\/test_feedImageViewLoadingIndicator_isVisibleWhileLoadingImage()",
         "FeedUIIntegrationTests\/test_feedImageViewRetryAction_retriesImageLoad()",
         "FeedUIIntegrationTests\/test_feedImageViewRetryButton_isVisibleOnImageURLLoadError()",

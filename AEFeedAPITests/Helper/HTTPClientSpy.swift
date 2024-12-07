@@ -8,6 +8,7 @@
 import Foundation
 
 import AE_Feed
+import AEFeedAPI
 
 class HTTPClientSpy: HTTPClient {
     private struct Task: HTTPClientTask {
