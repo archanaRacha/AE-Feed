@@ -8,7 +8,7 @@
 import UIKit
 import AE_Feed
 
-protocol FeedImageCellControllerDelegate{
+public protocol FeedImageCellControllerDelegate{
     func didRequestImage()
     func didCancelImageRequest()
 }
@@ -16,7 +16,7 @@ protocol FeedImageCellControllerDelegate{
 public final class FeedImageCellController : FeedImageView{
     private let delegate: FeedImageCellControllerDelegate
     private var cell : FeedImageCell?
-    init(delegate: FeedImageCellControllerDelegate) {
+    public init(delegate: FeedImageCellControllerDelegate) {
         self.delegate = delegate
     }
       

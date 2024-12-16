@@ -8,16 +8,16 @@
 import UIKit
 import AE_Feed
 
-protocol FeedViewControllerDelegate{
+public protocol FeedViewControllerDelegate{
     func didRequestFeedRefresh()
 }
 
 public final class FeedViewController : UITableViewController,UITableViewDataSourcePrefetching,FeedLoadingView,FeedErrorView {
-    var delegate: FeedViewControllerDelegate?
+    public var delegate: FeedViewControllerDelegate?
     @IBOutlet private(set) public var errorView : ErrorView?
     
     private var loadingControllers = [IndexPath:FeedImageCellController]()
-    var tableModel = [FeedImageCellController]() {
+    public var tableModel = [FeedImageCellController]() {
         didSet { self.tableView.reloadData()}
     }
     private var tasks = [IndexPath : FeedImageDataLoaderTask]()
