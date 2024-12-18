@@ -476,9 +476,8 @@
 		677D70062CFECC900005A98B /* AEFeedAPI */ = {
 			isa = PBXGroup;
 			children = (
+				678F930A2D12AD9500A65D21 /* Image Comments */,
 				677D70292CFECF8D0005A98B /* FeedItemMapper.swift */,
-				678F93002D12920700A65D21 /* ImageCommentsMapper.swift */,
-				678F93022D12A37400A65D21 /* ImageComments.swift */,
 				677D70282CFECF8C0005A98B /* Helpers */,
 				677D702D2CFECF8D0005A98B /* RemoteFeedImageDataLoader.swift */,
 				677D702A2CFECF8D0005A98B /* RemoteFeedLoader.swift */,
@@ -492,10 +491,10 @@
 		677D70122CFECC910005A98B /* AEFeedAPITests */ = {
 			isa = PBXGroup;
 			children = (
+				678F93092D12AD6B00A65D21 /* Image Comments */,
 				678F93072D12A7CB00A65D21 /* Shared API */,
 				678F93062D12A74C00A65D21 /* Shared API Infra */,
 				678B731B2B79DBAF0015E40D /* LoadFeedFromRemoteUseCaseTests.swift */,
-				678F92FE2D1290F400A65D21 /* LoadImageCommentsFromRemoteUseCaseTests.swift */,
 				675F014E2B8F91EE00E0A2C8 /* URLSessionHTTPClientTests.swift */,
 				675D4D502CA5741900162887 /* RemoteFeedImageDataLoaderTests.swift */,
 				677D70132CFECC910005A98B /* AEFeedAPITests.swift */,
@@ -583,9 +582,34 @@
 		678F93072D12A7CB00A65D21 /* Shared API */ = {
 			isa = PBXGroup;
 			children = (
-				6790808B2CAFAE5500522AD8 /* HTTPClientSpy.swift */,
+				678F93082D12AD6000A65D21 /* Helpers */,
 			);
 			path = "Shared API";
+			sourceTree = "<group>";
+		};
+		678F93082D12AD6000A65D21 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				6790808B2CAFAE5500522AD8 /* HTTPClientSpy.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		678F93092D12AD6B00A65D21 /* Image Comments */ = {
+			isa = PBXGroup;
+			children = (
+				678F92FE2D1290F400A65D21 /* LoadImageCommentsFromRemoteUseCaseTests.swift */,
+			);
+			path = "Image Comments";
+			sourceTree = "<group>";
+		};
+		678F930A2D12AD9500A65D21 /* Image Comments */ = {
+			isa = PBXGroup;
+			children = (
+				678F93022D12A37400A65D21 /* ImageComments.swift */,
+				678F93002D12920700A65D21 /* ImageCommentsMapper.swift */,
+			);
+			path = "Image Comments";
 			sourceTree = "<group>";
 		};
 		67A240022CF8E02E006C0E51 /* Helpers */ = {
