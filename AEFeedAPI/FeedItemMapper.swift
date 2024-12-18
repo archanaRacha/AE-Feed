@@ -8,21 +8,21 @@
 import Foundation
 import AE_Feed
 
+public struct RemoteFeedItem: Decodable{
+    let  id : UUID
+    let description : String?
+    let location:String?
+    let image :URL
+    var item : FeedImage {
+        return FeedImage(id: id, description:description, location: location, url: image)
+    }
+}
 internal final class FeedImageMapper{
 
     private struct Root : Decodable{
         let items :[RemoteFeedItem]
         var feed :[FeedImage] {
             return items.map { $0.item }
-        }
-    }
-    private struct RemoteFeedItem: Decodable{
-        let  id : UUID
-        let description : String?
-        let location:String?
-        let image :URL
-        var item : FeedImage {
-            return FeedImage(id: id, description:description, location: location, url: image)
         }
     }
     
