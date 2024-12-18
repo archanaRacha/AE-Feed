@@ -26,12 +26,21 @@ public final class RemoteFeedLoader : FeedLoader{
             guard  self != nil else {return}
             switch result {
             case  let .success((data,response)):
-                completion(FeedImageMapper.map(data: data, from: response))
+                
+                completion(RemoteFeedLoader.map(data, from: response))
             case .failure:
                 completion(.failure(RemoteFeedLoader.Error.connectivity))
             }
         }
     }
+    private static func map(_ data: Data, from response: HTTPURLResponse) -> Result {
+            do {
+                let items = try FeedItemsMapper.map(data: data, from: response)
+                return .success(items)
+            } catch {
+                return .failure(error)
+            }
+        }
     
 }
 
