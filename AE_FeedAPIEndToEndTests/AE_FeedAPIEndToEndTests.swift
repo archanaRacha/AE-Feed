@@ -7,6 +7,7 @@
 
 import XCTest
 import AE_Feed
+import AEFeedAPI
 
 final class AE_FeedAPIEndToEndTests: XCTestCase {
     
@@ -45,7 +46,7 @@ final class AE_FeedAPIEndToEndTests: XCTestCase {
     //MARK: Helper functions
     private func getFeedResult(file:StaticString = #file,line :UInt = #line) -> Swift.Result<[FeedImage], Error>?{
         
-        let loader = RemoteFeedLoader(client: ephemeralClient(), url: feedTestServerURL)
+        let loader = RemoteLoader(url: feedTestServerURL, client: ephemeralClient(), mapper: FeedItemsMapper.map)
         trackMemoryLeaks(loader,file: file,line: line)
         let exp = expectation(description: "wait for load completion")
         var receivedResult : Swift.Result<[FeedImage], Error>?

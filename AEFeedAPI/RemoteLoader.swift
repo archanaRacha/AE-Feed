@@ -38,7 +38,7 @@ public final class RemoteLoader<Resource>{
     }
     private func map(_ data: Data, from response: HTTPURLResponse) -> Result {
             do {
-                let items = try FeedItemsMapper.map(data: data, from: response)
+                _ = try FeedItemsMapper.map(data: data, from: response)
                 return .success(try mapper(data, response))
             } catch {
                 return .failure(error)

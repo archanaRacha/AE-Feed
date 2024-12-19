@@ -41,8 +41,8 @@
             filePath = "AE_FeedAPIEndToEndTests/AE_FeedAPIEndToEndTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
             landmarkName = "getFeedResult(file:line:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -57,8 +57,8 @@
             filePath = "AE_FeedAPIEndToEndTests/AE_FeedAPIEndToEndTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
             landmarkName = "getFeedResult(file:line:)"
             landmarkType = "7">
          </BreakpointContent>
